@@ -21,6 +21,14 @@
     <!-- 设备 -->
     <package name="machine" namespace="/machine" extends="struts-default">
     	
+    	<global-results>
+    		<result name="input"></result>	
+    	</global-results>
+    	
+    	<global-exception-mappings>
+    		<exception-mapping result="input" exception="java.lang.Exception"></exception-mapping>	
+    	</global-exception-mappings>
+    	
     	<action name="machine-*" class="machineAction" method="{1}">
 			
 			<result name="success">/WEB-INF/machine/list.jsp</result>
@@ -30,9 +38,6 @@
     	</action>
     
     </package>
-    
-    
-    
 	
 	<!-- 用户 -->
 	<package name="user" namespace="/user" extends="struts-default">
