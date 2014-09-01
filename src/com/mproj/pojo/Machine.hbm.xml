@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.mproj.pojo.Machine" table="T_MACHINES">
+        <id name="id" type="java.lang.Integer">
+            <column name="M_ID" />
+            <generator class="native" />
+        </id>
+		
+		<!-- 设备编号 -->
+		<property name="num" column="M_NUM" type="java.lang.String"></property>
+		<!-- 设备名称 -->
+        <property name="name" column="M_NAME" type="java.lang.String"></property>
+		<!-- 使用年限 -->
+        <property name="useYear" column="M_USE_YEAR" type="java.lang.Float"></property>
+        <!-- 生产日期 -->
+        <property name="proDate" column="PRO_DATE" type="java.sql.Date"></property>
+        <!-- 开始使用日期，未使用时设置为null -->
+        <property name="useDate" column="USE_DATE" type="java.sql.Date"></property>
+        <!-- 供应商名称 -->
+        <property name="suppliper" column="SUPPLIPER" type="java.lang.String"></property>
+        <!-- 功能简介 -->
+        <property name="function" column="FUNCTION" type="java.lang.String"></property>
+        <!-- 设备状态，在使用时值为true，未使用时值为false -->
+        <property name="status" column="M_STATUS" type="java.lang.Boolean"></property>
+
+		<!-- 设备类型 -->															
+        <many-to-one name="type" class="com.mproj.pojo.MachineType" column="M_TYPE_ID" lazy="false">
+        </many-to-one>													<!-- lazy="false" 初始化Machine时加载其所属类型 -->
+        
+        <!-- 设备该设备上的零件 -->
+		<set name="parts" table="T_PARTS" inverse="true">
+			<key column="M_ID"></key>
+			<one-to-many class="com.mproj.pojo.Part"/>
+		</set>        
+
+    </class>
+
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+

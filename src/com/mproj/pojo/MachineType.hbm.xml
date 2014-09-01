@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.mproj.pojo.MachineType" table="T_MACHINETYPES">
+    	
+        <id name="id" type="java.lang.Integer">
+            <column name="M_TYPE_ID" />
+            <generator class="native" />
+        </id>
+        
+        <!-- 
+        <property name="num" type="java.lang.String">
+        	<column name="M_TYPE_NUM"></column>
+        </property>
+ 		-->
+        
+        <property name="name" type="java.lang.String">
+            <column name="MTYPE_NAME" />
+        </property>
+
+		<set name="machines" table="T_MACHINES" inverse="true">
+			<key column="M_TYPE_ID"></key>
+			<one-to-many class="com.mproj.pojo.Machine" />
+		</set>
+    </class>
+
+</hibernate-mapping>
