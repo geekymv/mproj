@@ -3,6 +3,8 @@ package com.mproj.pojo;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.struts2.json.annotations.JSON;
+
 /**
  * 设备类型
  * @author Geek_ymv
@@ -22,6 +24,15 @@ public class MachineType {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	@JSON(serialize=false)
+	public Set<Machine> getMachines() {
+		return machines;
+	}
+	public void setMachines(Set<Machine> machines) {
+		this.machines = machines;
+	}
+	
 //	public String getNum() {
 //		return num;
 //	}
@@ -34,12 +45,8 @@ public class MachineType {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Set<Machine> getMachines() {
-		return machines;
-	}
-	public void setMachines(Set<Machine> machines) {
-		this.machines = machines;
-	}
+	
+	
 
 }
 

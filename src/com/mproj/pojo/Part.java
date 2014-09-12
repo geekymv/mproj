@@ -19,7 +19,7 @@ public class Part {
 
 	private PartType partType;	//零件类型
 	
-	private Machine machine;	//该零件所属设备
+//	private Machine machine;	//该零件所属设备
 
 	
 	public Integer getId() {
@@ -76,11 +76,11 @@ public class Part {
 	public void setPartType(PartType partType) {
 		this.partType = partType;
 	}
-	public Machine getMachine() {
-		return machine;
-	}
-	public void setMachine(Machine machine) {
-		this.machine = machine;
-	}
+//	public Machine getMachine() {
+//		return machine;
+//	}
+//	public void setMachine(Machine machine) {
+//		this.machine = machine;
+//	}
 
 }

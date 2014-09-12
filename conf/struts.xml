@@ -11,23 +11,36 @@
     <constant name="struts.devMode" value="true" />
 
     <package name="default" namespace="/" extends="struts-default">
-
     	<action name="login">
     		<result>/WEB-INF/user/login.jsp</result>
     	</action>
-        	
     </package>
     
+    <package name="json" namespace="/" extends="json-default">
+    	<action name="queryMachine" class="queryMachineAction">
+			<result type="json">
+				<!-- 指定被Struts2序列化的属性，该属性在Action中必须有对应的getter方法
+				<param name="root">dataMap</param>
+				 -->
+			</result>
+		</action>
+    </package>
+    
+    
+    
     <!-- 设备 -->
-    <package name="machine" namespace="/machine" extends="struts-default">
-    	
+    <package name="machine" namespace="/machine" extends="json-default">
     	<global-results>
     		<result name="input"></result>	
     	</global-results>
-    	
     	<global-exception-mappings>
     		<exception-mapping result="input" exception="java.lang.Exception"></exception-mapping>	
     	</global-exception-mappings>
+
+		<action name="query">
+			<result>/WEB-INF/machine/query.jsp</result>
+		</action>
+		
     	
     	<action name="machine-*" class="machineAction" method="{1}">
 			
@@ -35,6 +48,7 @@
 			<result name="add">/WEB-INF/machine/add.jsp</result>
 			<result name="save" type="redirectAction">machine-list</result>
 			<result name="edit">/WEB-INF/machine/edit.jsp</result>
+			
     	</action>
     
     </package>

@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.struts2.json.annotations.JSON;
+
 /**
  * 设备
  * @author Geek_ymv
@@ -24,6 +26,19 @@ public class Machine{
 	
 	private Set<Part> parts = new HashSet<Part>();	//设备上的零件
 
+	/*struts2 传递json对象时的延迟加载异常处理方法： 
+	 * http://www.niwozhi.net/demo_c68_i38874.html
+	 * http://perfectplan.iteye.com/blog/1561903*/
+	@JSON(serialize=false)  	//不进行序列化
+	public Set<Part> getParts() {
+		return parts;
+	}
+
+	public void setParts(Set<Part> parts) {
+		this.parts = parts;
+	}
+
+	
 	public Integer getId() {
 		return id;
 	}
@@ -53,6 +68,7 @@ public class Machine{
 	public void setUseYear(Float useYear) {
 		this.useYear = useYear;
 	}
+	@JSON(format="yyyy-MM-dd")
 	public Date getProDate() {
 		return proDate;
 	}
@@ -60,7 +76,7 @@ public class Machine{
 	public void setProDate(Date proDate) {
 		this.proDate = proDate;
 	}
-
+	@JSON(format="yyyy-MM-dd")
 	public Date getUseDate() {
 		return useDate;
 	}
@@ -101,18 +117,11 @@ public class Machine{
 		this.type = type;
 	}
 
-	public Set<Part> getParts() {
-		return parts;
-	}
-
-	public void setParts(Set<Part> parts) {
-		this.parts = parts;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "Machine [function=" + function + ", id=" + id + ", name="
-				+ name + ", num=" + num + ", parts=" + parts + ", proDate="
+				+ name + ", num=" + num + ", proDate="
 				+ proDate + ", status=" + status + ", suppliper=" + suppliper
 				+ ", type=" + type + ", useDate=" + useDate + ", useYear="
 				+ useYear + "]";

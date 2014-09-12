@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        <div class="panel-heading">功能导航</div>
 		   	<div class="list-group">
 			  <a href="machine/machine-add.do" class="list-group-item">添加设备</a>
-			  <a href="#" class="list-group-item">查询设备</a>
+			  <a href="machine/query.do" class="list-group-item">查询设备</a>
 			  <a href="machine/machine-list.do" class="list-group-item">设备列表</a>
 			</div>
 		</div>

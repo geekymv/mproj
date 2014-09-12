@@ -18,8 +18,10 @@ public class MachineServiceImpl implements MachineService {
 	private MachineDAO machineDAO = null;
 
 	@Override
-	public Machine query(String mNum) {
-		return machineDAO.query(mNum);
+	public Machine query(String num) {
+		
+		Machine machine = machineDAO.query(num);
+		return machine;
 	}
 
 	@Override

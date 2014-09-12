@@ -17,7 +17,7 @@ public interface MachineDAO {
 
 	/**
 	 * 根据设备id查询设备
-	 * @param mNum
+	 * @param id
 	 * @return
 	 */
 	public Machine query(Integer id);
@@ -27,7 +27,7 @@ public interface MachineDAO {
 	 * @param mNum
 	 * @return
 	 */
-	public Machine query(String mNum);
+	public Machine query(String num);
 	
 	/**
 	 * 根据设备编号查询设备上的所有零件

@@ -32,12 +32,16 @@ public class MachineDAOImpl implements MachineDAO{
 	
 	
 	@Override
-	public Machine query(String mNum) {
+	public Machine query(String num) {
 		
-		String hql = "from Machine where num = :num";
+		String hql = "from Machine m where m.num = :num";
 		
-		return (Machine) getSession().createQuery(hql).setString("num", mNum).uniqueResult();
+		Machine machine = (Machine) getSession().createQuery(hql).	//
+				setString("num", num).uniqueResult();
+		
+		return machine;
 	}
+	
 	
 	@SuppressWarnings("unchecked")
 	@Override

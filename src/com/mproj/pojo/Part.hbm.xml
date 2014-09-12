@@ -28,9 +28,9 @@
         <many-to-one name="partType" column="P_TYPE_ID" class="com.mproj.pojo.PartType" lazy="false">
         </many-to-one>
 		
-		<!-- 零件所属设备 -->
+		<!-- 零件所属设备
         <many-to-one name="machine" column="M_ID" class="com.mproj.pojo.Machine">
         </many-to-one>
-
+		 -->
     </class>
 </hibernate-mapping>

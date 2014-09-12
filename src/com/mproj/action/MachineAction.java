@@ -22,17 +22,14 @@ public class MachineAction extends ActionSupport implements RequestAware{
 
 	@Autowired
 	private MachineService machineService;
-	
 	@Autowired
 	private MachineTypeService machineTypeService;
 	
 	private Machine machine;
-	
 	private Integer id;	//设备id
 	
 	private int page = 1;	//第几页
 	
-	private Map<String, Object> request;
 	
 	/**
 	 * 分页显示设备信息
@@ -62,6 +59,24 @@ public class MachineAction extends ActionSupport implements RequestAware{
 		machineService.add(machine);
 		
 		return "save";
+	}
+	
+	/**
+	 * 查询设备信息
+	 * @return
+	 * @throws Exception
+	 */
+	public String query() throws Exception {
+		
+		
+		machine = machineService.query("1000");
+		
+		request.put("machine", machine);
+		
+		System.out.println("machine = " + machine);
+		
+		
+		return "query";
 	}
 	
 	/**
@@ -131,28 +146,10 @@ public class MachineAction extends ActionSupport implements RequestAware{
 		return machine;
 	}
 	
+	private Map<String, Object> request;
 	@Override
 	public void setRequest(Map<String, Object> request) {
 		this.request = request;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

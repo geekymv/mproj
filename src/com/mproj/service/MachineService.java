@@ -28,7 +28,7 @@ public interface MachineService {
 	 * @param mNum
 	 * @return
 	 */
-	public Machine query(String mNum);
+	public Machine query(String num);
 
 	/**
 	 * 根据设备id查询设备
