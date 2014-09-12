@@ -1,4 +1,4 @@
-package com.mproj.action;
+package com.mproj.action.machine;
 
 import java.util.List;
 import java.util.Map;

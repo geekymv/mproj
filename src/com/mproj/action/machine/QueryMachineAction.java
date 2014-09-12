@@ -1,4 +1,4 @@
-package com.mproj.action;
+package com.mproj.action.machine;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -8,6 +8,11 @@ import com.mproj.pojo.Machine;
 import com.mproj.service.MachineService;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 使用ajax + json 异步查询Machine
+ * @author Administrator
+ *
+ */
 @Controller("queryMachineAction")
 @Scope("prototype")
 public class QueryMachineAction extends ActionSupport {
