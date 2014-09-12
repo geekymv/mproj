@@ -16,19 +16,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+	
+	<style type="text/css">
+		.custom{
+			height:51px;
+		}
+		.footer {
+			background-color:  #333;
+			width: 100%;
+			height: 200px;
+			margin-top: 450px;
+		}
+		
+	</style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
   </head>
   <body>
   	<div class="container">
- 
-  		<!-- Panel -->
+  	
+  	<jsp:include page="nav.jsp"></jsp:include>
+  	
+ 	<div class="row">
+      <div class="col-md-2">
+   	 	<div class="panel panel-primary">
+	        <div class="panel-heading">功能导航</div>
+		   	<div class="list-group">
+			  <a href="machine/machine-add.do" class="list-group-item">添加设备</a>
+			  <a href="#" class="list-group-item">查询设备</a>
+			  <a href="machine/machine-list.do" class="list-group-item">设备列表</a>
+			</div>
+		</div>
+      </div>
+      
+      <div class="col-md-10">
         <div class="panel panel-primary">
           <div class="panel-heading">设备管理</div>
           <div class="panel-body">
@@ -92,26 +117,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="panel-footer">
           	 <ul class="pager">
 
-          	 	<li>当前页 ：<s:property value="pageNO"/>&nbsp;&nbsp;</li>
+          	 	<li>当前页 ：<s:property value="page"/>&nbsp;&nbsp;</li>
           	 	<li>总页数：<s:property value="#request.pageUtil.totalPage"/></li>
           	 	
-          	 	<s:if test="pageNO-1 > 0">
-          	 		<li><a href="machine/machine!list.do?pageNO=<s:property value=" pageNO-1 "/>" >上一页</a></li>
+          	 	<s:if test="page-1 > 0">
+          	 		<li><a href="machine/machine!list.do?page=<s:property value=" page-1 "/>" >上一页</a></li>
           	 	</s:if>
 		
 				<s:set var="totalPage" value="#request.pageUtil.totalPage"></s:set>
 				<%-- totalPage: <s:property value="#totalPage"/>--%>
-          	 	<s:if test="pageNO+1 <= #totalPage">
-			  		<li><a href="machine/machine!list.do?pageNO=<s:property value=" pageNO+1 "/>" >下一页</a></li>
+          	 	<s:if test="page+1 <= #totalPage">
+			  		<li><a href="machine/machine!list.do?page=<s:property value=" page+1 "/>" >下一页</a></li>
           	 	</s:if>
           	 	
 			</ul>
           </div>
-        
-          <a href="machine/machine-add.do">添加设备</a>
         </div> <!-- end of panel -->
-
+      </div>
 	</div>
+	</div>
+	
+   <div class="footer">
+   </div>
+
     <script src="jquery/jquery-1.11.1.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>

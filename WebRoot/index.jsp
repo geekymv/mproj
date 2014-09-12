@@ -134,6 +134,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <li><a href="#">Separated link</a></li>
 		  </ul>
 		</div>
+		<br />
+		<a href="machine/machine-list.do">设备管理</a> <br />
+		<a>零件管理</a> <br />
+		<a>溯源管理</a> <br />
+		
+		
+		
       </div>
       
 	</div>

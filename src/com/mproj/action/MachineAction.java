@@ -15,9 +15,8 @@ import com.mproj.service.MachineTypeService;
 import com.mproj.utils.PageUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
-
-@Scope("prototype")
 @Controller("machineAction")
+@Scope("prototype")
 public class MachineAction extends ActionSupport implements RequestAware{
 	private static final long serialVersionUID = -2312153102411139763L;
 
@@ -31,7 +30,7 @@ public class MachineAction extends ActionSupport implements RequestAware{
 	
 	private Integer id;	//设备id
 	
-	private int pageNO = 1;	//第几页
+	private int page = 1;	//第几页
 	
 	private Map<String, Object> request;
 	
@@ -42,7 +41,7 @@ public class MachineAction extends ActionSupport implements RequestAware{
 	 */
 	public String list() throws Exception {
 
-		PageUtil<Machine> pageUtil = machineService.queryAllByPage(pageNO, 3);
+		PageUtil<Machine> pageUtil = machineService.queryAllByPage(page, 4);
 		
 		request.put("pageUtil", pageUtil);
 		
@@ -112,12 +111,13 @@ public class MachineAction extends ActionSupport implements RequestAware{
 	
 	
 	
-	public int getPageNO() {
-		return pageNO;
+	public int getPage() {
+		return page;
 	}
-	public void setPageNO(int pageNO) {
-		this.pageNO = pageNO;
+	public void setPage(int page) {
+		this.page = page;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
