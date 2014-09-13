@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>设备管理</title>
+    <title>添加零件</title>
 
 	<!-- jquery ui 
 	<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css">
@@ -77,9 +77,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  	零件名称：<input type="text" name="part.name" /> <br/>
 			  	使用年限：<input type="text" name="part.useYear" /> <br/>
 			  	生产日期：<input type="text" name="part.proDate" /> <br/>
-			  	供应商：<input type="text" name="part.suppliper" /> <br/>
+			  	供应商：<input type="text" name="part.supplier" /> <br/>
 			  	零件类型：<s:select list="#request.partTypes"
-					name="part.parType.id"
+					name="part.partType.id"
 					listKey="id" listValue="name">
 					
 					</s:select>	

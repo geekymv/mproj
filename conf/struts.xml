@@ -23,8 +23,6 @@
 		</action>
     </package>
     
-    
-    
     <!-- 设备 -->
     <package name="machine" namespace="/machine" extends="struts-default">
     	<global-results>
@@ -49,7 +47,17 @@
     	</action>
     </package>
 	
+	<!-- 零件 -->
+	<package name="part" namespace="/part" extends="struts-default">
+		
+		<action name="part-*" class="partAction" method="{1}">
+			<result name="add">/WEB-INF/part/add.jsp</result>
+			
+			<result name="save" type="redirect">/index.jsp</result>
+			
+		</action>	
 	
+	</package>
 	
 	
 	<!-- 用户 -->
