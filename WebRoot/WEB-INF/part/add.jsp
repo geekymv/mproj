@@ -14,10 +14,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>设备管理</title>
 
-	<!-- jquery ui -->
-
+	<!-- jquery ui 
 	<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.theme.css">
+	-->
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -59,9 +59,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	 	<div class="panel panel-primary">
 	        <div class="panel-heading">功能导航</div>
 		   	<div class="list-group">
-			  <a href="machine/machine-add.do" class="list-group-item">添加设备</a>
-			  <a href="machine/query.do" class="list-group-item">查询设备</a>
-			  <a href="machine/machine-list.do" class="list-group-item">设备列表</a>
+			  <a href="part/part-add.do" class="list-group-item">添加零件</a>
+			  <a href="part/query.do" class="list-group-item">查询零件</a>
+			  <a href="part/part-list.do" class="list-group-item">零件列表</a>
 			</div>
 		</div>
       </div>
@@ -71,17 +71,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <div class="panel-heading">添加设备</div>
           
           <div class="form">
-	          <form action="machine/machine-save" method="post">
+	          <form action="part/part-save" method="post">
 			  	
-			  	设备编号：<input type="text" name="machine.num" /> <br/>
-			  	设备名称：<input type="text" name="machine.name" /> <br/>
-			  	使用年限：<input type="text" name="machine.useYear" /> <br/>
-			  	生产日期：<input type="text" name="machine.proDate" /> <br/>
-			  	供应商：<input type="text" name="machine.suppliper" /> <br/>
-			  	功能简介：<input type="text" name="machine.function" /> <br/>
-			  	
-			  	设备类型：<s:select list="#request.machineTypes"
-					name="machine.type.id"
+			  	零件编号：<input type="text" name="part.num" /> <br/>
+			  	零件名称：<input type="text" name="part.name" /> <br/>
+			  	使用年限：<input type="text" name="part.useYear" /> <br/>
+			  	生产日期：<input type="text" name="part.proDate" /> <br/>
+			  	供应商：<input type="text" name="part.suppliper" /> <br/>
+			  	零件类型：<s:select list="#request.partTypes"
+					name="part.parType.id"
 					listKey="id" listValue="name">
 					
 					</s:select>	
@@ -94,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	</div>
 	
-	<%--添加成功确认框 --%>
+	<%--添加成功确认框 
 	<div id="dialog-message" title="添加成功">
 		<p>
 			<span class="ui-icon ui-icon-circle-check"
@@ -103,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			添加设备成功！
 		</p>
 	</div>
-	
+	--%>
 	
 	
 	
@@ -113,7 +111,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="jquery/jquery-1.11.1.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     
-    
+
+<%--    
 <script src="jquery-ui/jquery/jquery.js"></script>
 <script src="jquery-ui/jquery-ui.js"></script>    
 <script type="text/javascript">
@@ -136,7 +135,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	});
 	
 </script>
-    
+--%>    
     
   </body>
 </html>

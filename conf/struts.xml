@@ -19,9 +19,6 @@
     <package name="json" namespace="/" extends="json-default">
     	<action name="queryMachine" class="queryMachineAction">
 			<result type="json">
-				<!-- 指定被Struts2序列化的属性，该属性在Action中必须有对应的getter方法
-				<param name="root">dataMap</param>
-				 -->
 			</result>
 		</action>
     </package>
@@ -29,7 +26,7 @@
     
     
     <!-- 设备 -->
-    <package name="machine" namespace="/machine" extends="json-default">
+    <package name="machine" namespace="/machine" extends="struts-default">
     	<global-results>
     		<result name="input"></result>	
     	</global-results>
@@ -50,8 +47,10 @@
 			<result name="edit">/WEB-INF/machine/edit.jsp</result>
 			
     	</action>
-    
     </package>
+	
+	
+	
 	
 	<!-- 用户 -->
 	<package name="user" namespace="/user" extends="struts-default">

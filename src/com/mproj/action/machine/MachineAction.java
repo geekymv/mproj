@@ -38,7 +38,7 @@ public class MachineAction extends ActionSupport implements RequestAware{
 	 */
 	public String list() throws Exception {
 
-		PageUtil<Machine> pageUtil = machineService.queryAllByPage(page, 4);
+		PageUtil<Machine> pageUtil = machineService.queryAllByPage(page, 6);
 		
 		request.put("pageUtil", pageUtil);
 		
