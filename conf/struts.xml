@@ -21,6 +21,15 @@
 			<result type="json">
 			</result>
 		</action>
+		
+		<action name="listParts" class="queryPartsAction">
+			<result type="json"></result>
+		</action>
+		
+		<action name="addPart" class="addPartAction">
+			<result type="json"></result>
+		</action>
+		
     </package>
     
     <!-- 设备 -->

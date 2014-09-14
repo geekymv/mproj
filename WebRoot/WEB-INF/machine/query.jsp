@@ -17,6 +17,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	
+	<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.theme.css">
+	
+	
 	<style type="text/css">
 		.custom{
 			height:51px;
@@ -46,26 +50,82 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <![endif]-->
     <script src="jquery/jquery-1.11.1.js"></script>
     <script type="text/javascript">
-    
+	    /*
+    	function show(num){
+			var num = num;
+		//	window.open("/lbrms/admin/showBookInfo.jsp?bookId="+bookId,"dzxx","width=500px,height=300px,left=400px,top=200px");
+		//	window.open("index.jsp","dzxx","width=500px,height=300px,left=400px,top=200px");
+	   		alert(num);
+	    }
+    	*/
+    	
     	$(function(){
     		
-    		$("#search").click(function(){
-				$.post("<%=request.getContextPath()%>/queryMachine.do", {"num":$("#num").val()}, function(data){
+    		$("#getParts").button().on("click", function() {
+    			$.post("<%=request.getContextPath()%>/listParts.do", {"num":$("#mNum").val()}, function(data){
+				
+				$("#listParts").empty();
+				if(data.parts.length == 0){
+					alert("没有查到该设备上的零件！");
+					return;
+				}
+
+				var html = "<table class='table table-bordered table-hover table-condensed'>"
+					 + "<caption>零件信息</caption>"
+					 + "<tr>"
+					 + "<th>零件编号</th> <th>零件名称</th> <th>设备类型</th>"
+			  		 + "<th>生产日期</th> <th>使用日期</th> "
+			  		 + "<th>使用年限</th> <th>供应商</th>"
+					 + "</tr>";
+					 
+    			for(var i = 0; i < data.parts.length; i++){
+    				
+    				var part = data.parts[i];
+    				
+    				html += "<tr>"
+
+						 + "<td align='center'>"+part.num+"</td>"+ "<td>"+part.name+"</td>"
+						 + "<td>"+part.partType.name+"</td>" + "<td>"+part.proDate+"</td>"
+						 + "<td>"+part.useDate+"</td>" + "<td>"+part.useYear+"</td>" 
+						 + "<td>"+part.supplier+"</td>"
+						 +"</tr>";
+    			}
+    				html += "</table>";
+    			
+    				
+    				$("#listParts").append(html);	
+    			});
+    		});
+    		
+    		/*异步查询设备*/
+    		$("#search").button().on("click", function(){
+				$.post("<%=request.getContextPath()%>/queryMachine.do", {"num":$("#mNum").val()}, function(data){
 					
 					$("#content").empty();
 					 
 					if(data.machine == null){
 						
-						alert("查无结果！");
+						alert("没有查到该设备！");
 						return;
 					}
+					
+					/*
+					var operator = "";
+					var addPart = "";
+					
+					if(data.machine.status == true){	//使用
+						operator = 	"<th>操作</th>";					
+					
+						addPart = '<td><button type="button" onclick="addPart()">添加零件</button></td>';
+					}
+					*/
 					
 					var html = "<table class='table table-bordered table-hover table-condensed'>"
 							 + "<caption>设备信息</caption>"
 							 + "<tr>"
 							 + "<th>设备编号</th> <th>设备名称</th> <th>使用年限</th>"
 					  		 + "<th>生产日期</th> <th>使用日期</th> <th>供应商</th> <th>设备类型</th>"
-					  		 + "<th>设备状态</th> <th>选择操作</th>"
+					  		 + "<th>设备状态</th>" //+ operator
 							 + "</tr>";
 						
 					var status = "未使用";
@@ -76,31 +136,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}	
 
 					var id = data.machine.id;	/* 设备的id*/
-					
-					var operator =  '<div class="btn-group">' + 
-					  '<button type="button" class="btn btn-success btn-sm">操作</button>'+
-					  '<button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">'+
-					    '<span class="caret"></span>'+
-					    '<span class="sr-only">Toggle Dropdown</span>'+
-					  '</button>'+
-					  '<ul class="dropdown-menu" role="menu">'+
-					    '<li><button type="button" class="btn btn-success">零件列表</li>'+
-					 	'<li><a href="addPart.jsp?id='+id+'">添加零件</a></li>'+
-					    '<li><a href="#">Something else here</a></li>'+
-					    '<li class="divider"></li>'+
-					    '<li><a href="#">Separated link</a></li>'+
-					  '</ul>'+
-					'</div>';
-					
-					
 						html += "<tr>"
-
 							 + "<td align='center'>"+data.machine.num+"</td>"+ "<td>"+data.machine.name+"</td>"
 							 + "<td>"+data.machine.useYear+"</td>" + "<td>"+data.machine.proDate+"</td>"
 							 + "<td>"+isUser+"</td>" + "<td>"+data.machine.suppliper+"</td>"
-							 + "<td>"+data.machine.type.name+"</td>" + "<td>"+status+"</td>" + "<td>"+ operator +"</td>"
+							 + "<td>"+data.machine.type.name+"</td>" + "<td>"+status+"</td>" //+ addPart
 							 +"</tr>";
-
+							 
 						html += "</table>";
 					 
 					 $("#content").append(html);
@@ -108,7 +150,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}, "json");
 
 			});
-    		
     	});
     
     
@@ -138,15 +179,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="panel panel-primary">
           <div class="panel-heading">查询设备</div>
           	
-          	请输入设备编号：<input type="text" id="num" name="num"/>
+          	请输入设备编号：<input type="text" id="mNum" name="num"/>
           	
-          	<input type="button" id="search" value="查询">
+          	<button id="search">查询</button>
           	
+          	<button id="getParts">查看零件</button>
           	
+          	<button id="addParts" class="">添加零件</button>
+
+
+			<%-- 设备显示区--%>
           	<div id="content"></div>
           	
+          	<%-- 零件显示区--%>
           	<div id="listParts"></div>
           	
+          	
+          	<%-- 显示添加零件的弹出框--%>
+          	<div id="addDialog" title="添加零件">
+          		输入零件编号：<input type="text" id="pNum" name="pNum"/> <br />
+          	</div>
           	
         </div> <!-- end of panel -->
       </div>
@@ -154,10 +206,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	
    <div class="footer">
+   
    </div>
 
-  
     <script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="jquery-ui/jquery/jquery.js"></script>
+	<script src="jquery-ui/jquery-ui.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(function() {
+			var dialog;
+			
+			function add(){
+				//异步添加零件
+				$.post("<%=request.getContextPath()%>/addPart.do", 
+						{"machineNum":$("#mNum").val(), "partNum":$("#pNum").val()}, function(data){
+							
+					dialog.dialog( "close" );	//关闭添加零件弹出框
+				});
+			}
+			
+			dialog = $("#addDialog").dialog({
+				autoOpen : false,
+				height : 200,
+				width : 350,
+
+				buttons : {
+					"添加" : add,
+					"取消 ": function() {
+						dialog.dialog("close");
+					}
+				},
+			});
+				
+			$("#addParts").button().on( "click", function() {
+				 dialog.dialog( "open" );
+			});
+			
+		});
+
+	</script>
+
   </body>
 </html>
 

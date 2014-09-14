@@ -1,7 +1,7 @@
 package com.mproj.pojo;
 
 import java.util.Date;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.apache.struts2.json.annotations.JSON;
@@ -24,7 +24,7 @@ public class Machine{
 	
 	private MachineType type;	//设备类型
 	
-	private Set<Part> parts = new HashSet<Part>();	//设备上的零件
+	private Set<Part> parts = new LinkedHashSet<Part>();	//设备上的零件
 
 	/*struts2 传递json对象时的延迟加载异常处理方法： 
 	 * http://www.niwozhi.net/demo_c68_i38874.html

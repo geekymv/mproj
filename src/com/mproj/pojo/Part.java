@@ -2,6 +2,8 @@
 package com.mproj.pojo;
 
 import java.util.Date;
+
+import org.apache.struts2.json.annotations.JSON;
 /**
  * 零件
  * @author Geek_ymv
@@ -19,7 +21,7 @@ public class Part {
 
 	private PartType partType;	//零件类型
 	
-//	private Machine machine;	//该零件所属设备
+	private Machine machine;	//该零件所属设备
 
 	
 	public Integer getId() {
@@ -46,12 +48,14 @@ public class Part {
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
+	@JSON(format="yyyy-MM-dd")
 	public Date getProDate() {
 		return proDate;
 	}
 	public void setProDate(Date proDate) {
 		this.proDate = proDate;
 	}
+	@JSON(format="yyyy-MM-dd")
 	public Date getUseDate() {
 		return useDate;
 	}
@@ -76,11 +80,11 @@ public class Part {
 	public void setPartType(PartType partType) {
 		this.partType = partType;
 	}
-//	public Machine getMachine() {
-//		return machine;
-//	}
-//	public void setMachine(Machine machine) {
-//		this.machine = machine;
-//	}
+	public Machine getMachine() {
+		return machine;
+	}
+	public void setMachine(Machine machine) {
+		this.machine = machine;
+	}
 
 }

@@ -1,6 +1,8 @@
 package com.mproj.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -65,9 +67,15 @@ public class MachineDAOImpl implements MachineDAO{
 		return pageUtil;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Part> queryParts(String mNum) {
-		return null;
+
+		Machine machine = query(mNum);
+		
+		String hql = "from Part p where p.machine = ? order by p.useDate";
+
+		return getSession().createQuery(hql).setEntity(0, machine).list();
 	}
 	
 	@Override

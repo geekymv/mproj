@@ -27,4 +27,14 @@ public class PartDAOImpl implements PartDAO {
 		return part;
 	}
 
+
+	@Override
+	public Part query(String pNum) {
+		
+		String hql = "from Part p where p.num = ?";
+		
+		return (Part) getSession().createQuery(hql).setString(0, pNum).uniqueResult();
+		
+	}
+
 }

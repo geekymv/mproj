@@ -10,6 +10,13 @@ public interface PartDAO {
 	 * @return
 	 */
 	public Part save(Part part);
+
+	/**
+	 * 根据零件编号查询零件
+	 * @param pNum
+	 * @return
+	 */
+	public Part query(String pNum);
 	
 	
 }

@@ -23,6 +23,14 @@ public interface MachineService {
 	 */
 	public Machine add(Machine machine);
 	
+	
+	/**
+	 * 向一个设备上添加一个零件
+	 * @param mNum 设备编号
+	 * @param pNum 零件编号
+	 */
+	public void addPart(String mNum, String pNum);
+	
 	/**
 	 * 根据设备编号查询设备
 	 * @param mNum

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 
 import com.mproj.pojo.Machine;
 import com.mproj.pojo.MachineType;
+import com.mproj.pojo.Part;
 import com.mproj.service.MachineService;
 import com.mproj.service.MachineTypeService;
 import com.mproj.utils.PageUtil;
@@ -124,6 +125,20 @@ public class MachineAction extends ActionSupport implements RequestAware{
 		return SUCCESS;
 	}
 	
+	/**
+	 * 根据设备编号查询设备上的所有零件
+	 * @return
+	 * @throws Exception
+	 */
+	public String listParts() throws Exception {
+		
+		List<Part> parts = machineService.queryParts(machine.getNum());
+		
+		System.out.println(parts);
+		
+		
+		return "listParts";
+	}
 	
 	
 	public int getPage() {
