@@ -1,15 +1,24 @@
 package com.mproj.pojo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 用户
  * @author Geek_ymv
  */
+@Entity
+@Table(name="t_user")
 public class User {
 	
 	private Integer id;
 	private String username;
 	private String password;
 	
+	@Id
+	@GeneratedValue
 	public Integer getId() {
 		return id;
 	}

@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<div class="container">
 		<h1 class="page-header">用户登录</h1>
-		<form class="form-horizontal" role="form"  action="user/user!login" method="post">
+		<form class="form-horizontal" role="form"  action="user/user-login" method="post">
 			<fieldset> 
 				<legend>登录也是一种美德哦！</legend>	
 				<div class="errors">

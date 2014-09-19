@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.mproj.dao.MachineDAO;
 import com.mproj.dao.PartDAO;
+import com.mproj.dto.MachinePart;
 import com.mproj.pojo.Machine;
 import com.mproj.pojo.Part;
 import com.mproj.service.MachineService;
@@ -21,6 +22,12 @@ public class MachineServiceImpl implements MachineService {
 	@Autowired
 	private PartDAO partDAO;
 
+	@Override
+	public Machine save(Machine machine) {
+		
+		return machineDAO.save(machine);
+	}
+	
 	@Override
 	public Machine query(String num) {
 		
@@ -45,22 +52,22 @@ public class MachineServiceImpl implements MachineService {
 	}
 
 	@Override
-	public Machine add(Machine machine) {
-		
-		return machineDAO.add(machine);
-	}
-
-	@Override
 	public void addPart(String mNum, String pNum) {
 		Machine machine = machineDAO.query(mNum);
 		Part part = partDAO.query(pNum);
-		part.setUseDate(new Date());	//设备零件的使用日期
+		if(null == part.getUseDate()){	//第一次使用
+			part.setUseDate(new Date());	
+			partDAO.save(part);
+		}
 		
+		MachinePart machinePart = new MachinePart();
 		
-		machine.getParts().add(part);
-		part.setMachine(machine);
+		machinePart.setMachine(machine);
+		machinePart.setPart(part);
+		machinePart.setStartDate(new Date());
+		machinePart.setUsable(true);
 		
-		machineDAO.add(machine);
-		partDAO.save(part);
+		machineDAO.saveMachinePart(machinePart);
 	}
+
 }

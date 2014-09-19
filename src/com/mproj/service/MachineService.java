@@ -2,6 +2,7 @@ package com.mproj.service;
 
 import java.util.List;
 
+import com.mproj.dto.MachinePart;
 import com.mproj.pojo.Machine;
 import com.mproj.pojo.Part;
 import com.mproj.utils.PageUtil;
@@ -17,11 +18,11 @@ public interface MachineService {
 	public PageUtil<Machine> queryAllByPage(int pageNO, int pageSize);
 	
 	/**
-	 * 添加设备
+	 * 保存设备
 	 * @param machine
 	 * @return
 	 */
-	public Machine add(Machine machine);
+	public Machine save(Machine machine);
 	
 	
 	/**

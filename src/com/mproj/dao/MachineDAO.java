@@ -2,6 +2,7 @@ package com.mproj.dao;
 
 import java.util.List;
 
+import com.mproj.dto.MachinePart;
 import com.mproj.pojo.Machine;
 import com.mproj.pojo.Part;
 import com.mproj.utils.PageUtil;
@@ -13,7 +14,7 @@ public interface MachineDAO {
 	 * @param machine
 	 * @return
 	 */
-	public Machine add(Machine machine);
+	public Machine save(Machine machine);
 
 	/**
 	 * 根据设备id查询设备
@@ -50,6 +51,13 @@ public interface MachineDAO {
 	 * @return
 	 */
 	public int getAllRowCount();
+	
+	/**
+	 * 保存
+	 * @param machinePart
+	 */
+	public void saveMachinePart(MachinePart machinePart);
+	
 }
 
 

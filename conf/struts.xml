@@ -30,6 +30,11 @@
 			<result type="json"></result>
 		</action>
 		
+		<action name="use" class="useMachineAction" method="use">
+			<result name="use" type="json"></result>
+		</action>
+			
+		
     </package>
     
     <!-- 设备 -->
@@ -43,6 +48,9 @@
 
 		<action name="query">
 			<result>/WEB-INF/machine/query.jsp</result>
+		</action>
+		<action name="use" class="machineAction" method="preuse">
+			<result name="preuse">/WEB-INF/machine/use.jsp</result>
 		</action>
 		
     	
@@ -71,7 +79,7 @@
 	
 	<!-- 用户 -->
 	<package name="user" namespace="/user" extends="struts-default">
-		<action name="user" class="userAction">
+		<action name="user-*" class="userAction" method="{1}">
 			<result>/index.jsp</result>
 		</action>
 	</package>    

@@ -3,6 +3,12 @@ package com.mproj.pojo;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.apache.struts2.json.annotations.JSON;
 
 /**
@@ -10,33 +16,33 @@ import org.apache.struts2.json.annotations.JSON;
  * @author Geek_ymv
  *
  */
+@Entity
+@Table(name="t_partType")
 public class PartType {
 	
 	private Integer id;
-//	private String num;	//零件类型编号
 	private String name;	//零件类型名
 	
 	private Set<Part> parts = new HashSet<Part>();
 	
+	@Id
+	@GeneratedValue
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-//	public String getNum() {
-//		return num;
-//	}
-//	public void setNum(String num) {
-//		this.num = num;
-//	}
+	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	@JSON(serialize=false)
+	@OneToMany(mappedBy="type")
 	public Set<Part> getParts() {
 		return parts;
 	}

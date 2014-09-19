@@ -35,8 +35,20 @@
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
-		<!-- 关联.hbm.xml文件 -->
+		<!-- 关联.hbm.xml文件 
 		<property name="mappingLocations" value="classpath:com/mproj/pojo/*.hbm.xml"></property>
+		-->
+		<property name="annotatedClasses">
+			<list>
+				<value>com.mproj.pojo.Machine</value>
+				<value>com.mproj.pojo.MachineType</value>
+				<value>com.mproj.pojo.Part</value>
+				<value>com.mproj.pojo.PartType</value>
+				<value>com.mproj.dto.MachinePart</value>
+				<value>com.mproj.pojo.User</value>
+			</list>
+		</property>
+		
 	</bean>
 	
 	<!-- 配置 Spring 的声明式事务 -->

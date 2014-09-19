@@ -60,12 +60,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	*/
     	
     	$(function(){
-    		
+    		/*获得设备上所有的零件*/
     		$("#getParts").button().on("click", function() {
     			$.post("<%=request.getContextPath()%>/listParts.do", {"num":$("#mNum").val()}, function(data){
 				
 				$("#listParts").empty();
-				if(data.parts.length == 0){
+				if(data.parts == null || data.parts.length == 0){
 					alert("没有查到该设备上的零件！");
 					return;
 				}
@@ -186,8 +186,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           	<button id="getParts">查看零件</button>
           	
           	<button id="addParts" class="">添加零件</button>
-
-
+          	
 			<%-- 设备显示区--%>
           	<div id="content"></div>
           	

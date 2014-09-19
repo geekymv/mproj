@@ -1,5 +1,6 @@
 package com.mproj.action.machine;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +33,16 @@ public class MachineAction extends ActionSupport implements RequestAware{
 	private int page = 1;	//第几页
 	
 	
+	
+	/**
+	 * 跳转至使用设备页面
+	 * @return
+	 */
+	public String preuse() throws Exception {
+		return "preuse";
+	}
+	
+	
 	/**
 	 * 分页显示设备信息
 	 * @return
@@ -57,7 +68,7 @@ public class MachineAction extends ActionSupport implements RequestAware{
 			machine.setStatus(false);
 		}
 		
-		machineService.add(machine);
+		machineService.save(machine);
 		
 		return "save";
 	}
@@ -148,12 +159,15 @@ public class MachineAction extends ActionSupport implements RequestAware{
 		this.page = page;
 	}
 
+
+	
 	public void setId(int id) {
 		this.id = id;
 	}
 	public int getId() {
 		return id;
 	}
+	
 	public void setMachine(Machine machine) {
 		this.machine = machine;
 	}
