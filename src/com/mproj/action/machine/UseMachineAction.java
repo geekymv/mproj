@@ -1,5 +1,7 @@
 package com.mproj.action.machine;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,22 @@ public class UseMachineAction extends ActionSupport {
 	@Autowired
 	private MachineService machineService;
 	
+	private InputStream inputStream;
+	
 	private String num;	//设备编号
+	
+	
+	public String isuse() throws Exception {
+		
+		if(machineService.machineIsUesed(num)){	//该设备已经使用
+			inputStream = new ByteArrayInputStream("isuse".getBytes("UTF-8"));
+		}else {
+			inputStream = new ByteArrayInputStream("notuse".getBytes("UTF-8"));
+		}
+		
+		return "ajax-success";
+	}
+	 
 	
 
 	/**
@@ -41,6 +58,15 @@ public class UseMachineAction extends ActionSupport {
 		return "use";
 	}
 	
+	
+	
+	public InputStream getInputStream() {
+		return inputStream;
+	}
+	public void setInputStream(InputStream inputStream) {
+		this.inputStream = inputStream;
+	}
+
 	public String getNum() {
 		return num;
 	}

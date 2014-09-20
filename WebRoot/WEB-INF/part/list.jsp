@@ -46,9 +46,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	 	<div class="panel panel-primary">
 	        <div class="panel-heading">功能导航</div>
 		   	<div class="list-group">
-			  <a href="machine/machine-add.do" class="list-group-item">添加设备</a>
-			  <a href="machine/query.do" class="list-group-item">查询设备</a>
-			  <a href="machine/machine-list.do" class="list-group-item">设备列表</a>
+			  <a href="part/part-add.do" class="list-group-item">添加零件</a>
+			  <a href="part/query.do" class="list-group-item">查询零件</a>
+			  <a href="part/part-list.do" class="list-group-item">零件列表</a>
 			</div>
 		</div>
       </div>
@@ -64,14 +64,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <table class="table table-bordered table-hover table-condensed">
             <thead>
                 <tr>
-                   	<th>设备编号</th> <th>设备名称</th> <th>使用年限</th>
-		  			<th>生产日期</th> <th>使用日期</th> <th>供应商</th> <th>设备类型</th>
-		  			<th>设备状态</th> <th>功能简介</th> <th>选择操作</th>
+                   	<th>零件编号</th> <th>零件名称</th> <th>使用年限</th> <th>已使用年限</th>
+		  			<th>生产日期</th> <th>使用日期</th> <th>供应商</th> <th>零件类型</th>
+		  			<th>零件状态</th> <th>选择操作</th>
                 </tr>
             </thead>
             <tbody>
             	<s:if test="#request.pageUtil == null || #request.pageUtil.datas.size() == 0">
-            		没有设备信息！
+            		没有零件信息！
             	</s:if>
             	<s:else>
             		<s:iterator value="#request.pageUtil.datas">
@@ -79,6 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  			<td>${num }</td>
 				  			<td><s:property value="name"/></td>
 				  			<td><s:property value="useYear"/></td>
+				  			<td><s:property value="usedYear"/></td>
 				  			
 				  			<td>
 				  				<s:date name="proDate" format="yyyy-MM-dd"/>
@@ -89,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  			<!-- 
 				  			<td><s:property value="#m.useDate"/></td>
 				  			 -->
-				  			<td><s:property value="suppliper"/></td>
+				  			<td><s:property value="supplier"/></td>
 				  			<td><s:property value="type.name"/></td>
 				  			
 				  			<%--设备状态 --%>
@@ -100,11 +101,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  				<td>已使用</td>
 				  			</s:else>
 
-				  			<td><s:property value="function"/></td>
-				  			
 				  			<td>
-				  				<a href="machine/machine-edit.do?id=${id }">修改</a>|
-				  				<a href="machine/machine-delete.do?id=${id }">删除</a>
+				  				<a href="part/part-edit.do?id=${id }">修改</a>|
+				  				<a href="part/part-delete.do?id=${id }">删除</a>
 				  			</td>
 				  			
 				  		</tr>

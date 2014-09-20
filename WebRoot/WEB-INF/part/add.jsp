@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  	生产日期：<input type="text" name="part.proDate" /> <br/>
 			  	供应商：<input type="text" name="part.supplier" /> <br/>
 			  	零件类型：<s:select list="#request.partTypes"
-					name="part.partType.id"
+					name="part.type.id"
 					listKey="id" listValue="name">
 					
 					</s:select>	

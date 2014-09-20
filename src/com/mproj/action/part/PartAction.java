@@ -12,6 +12,7 @@ import com.mproj.pojo.Part;
 import com.mproj.pojo.PartType;
 import com.mproj.service.PartService;
 import com.mproj.service.PartTypeService;
+import com.mproj.utils.PageUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -27,12 +28,32 @@ public class PartAction extends ActionSupport implements RequestAware {
 	
 	private Part part;
 	
+	private int page = 1;	//第几页
+	/**
+	 * 分页显示所有零件
+	 * @return
+	 * @throws Exception
+	 */
+	public String list() throws Exception {
+		
+		PageUtil<Part> pageUtil = partService.list(page, 8);
+		
+		request.put("pageUtil", pageUtil);
+		
+		return "list";
+	}
+	
 	/**
 	 * 保存或更新零件
 	 * @return
 	 * @throws Exception
 	 */
 	public String save() throws Exception {
+		
+		if(part.getId() == null) {	//添加零件
+			part.setStatus(false);
+			part.setUsedYear(0f);
+		}
 		
 		partService.add(part);
 		
@@ -54,30 +75,32 @@ public class PartAction extends ActionSupport implements RequestAware {
 		return "add";
 	}
 	
-	/**
-	 * 分配零件：将零件分配给一个设备
-	 * @return
-	 * @throws Exception
-	 */
-	public String distribute() throws Exception {
+	public String edit() throws Exception {
 		
-		return "distribute";
+		
+		
+		return "edit";
 	}
-
+	
 
 	private Map<String, Object> request;
-	
 	@Override
 	public void setRequest(Map<String, Object> request) {
 		this.request = request;
 	}
-
 
 	public Part getPart() {
 		return part;
 	}
 	public void setPart(Part part) {
 		this.part = part;
+	}
+
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page = page;
 	}
 	
 }

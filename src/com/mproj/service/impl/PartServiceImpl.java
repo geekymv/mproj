@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.mproj.dao.PartDAO;
 import com.mproj.pojo.Part;
 import com.mproj.service.PartService;
+import com.mproj.utils.PageUtil;
 
 @Service("partService")
 public class PartServiceImpl implements PartService {
@@ -18,6 +19,14 @@ public class PartServiceImpl implements PartService {
 	@Override
 	public Part add(Part part) {
 		return partDAO.save(part);
+	}
+
+
+
+	@Override
+	public PageUtil<Part> list(int page, int pageSize) {
+		
+		return partDAO.list(page, pageSize);
 	}
 	
 }

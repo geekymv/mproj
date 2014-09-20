@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	<h1>修改设备信息</h1>
+  	<h1>修改零件信息</h1>
 	  	<form action="machine/machine-save" method="post">
 	  		<%--设备id --%>
 		  	<input type="hidden" name="machine.id" value="${machine.id }"/>	<br/>

@@ -70,4 +70,12 @@ public class MachineServiceImpl implements MachineService {
 		machineDAO.saveMachinePart(machinePart);
 	}
 
+	@Override
+	public boolean machineIsUesed(String num) {
+
+		Machine machine = machineDAO.query(num);
+		
+		return machine.getStatus();
+	}
+
 }

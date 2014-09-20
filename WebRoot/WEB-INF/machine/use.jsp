@@ -64,6 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <a href="machine/machine-add.do" class="list-group-item">添加设备</a>
 			  <a href="machine/query.do" class="list-group-item">查询设备</a>
 			  <a href="machine/machine-list.do" class="list-group-item">设备列表</a>
+			  <a href="machine/use.do" class="list-group-item">使用设备</a> 
 			</div>
 		</div>
       </div>
@@ -94,12 +95,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		$(function() {
 			
-			$("#use").click(function(){
-				//异步添加零件
+			/*验证设备是否已使用*/
+			$(":input[id=mNum]").change(function(){
+				
+				var val = $(this).val();
+				val = $.trim(val);
+				var $this = $(this);
+				
+				if(val != ""){
+					$this.nextAll("font").remove();
+					
+					var url = "<%=request.getContextPath()%>/isuse.do";
+					var args = {"num":val};
+
+					$.post(url, args, function(data){
+						if(data == "notuse"){	
+						}else if(data == "isuse"){
+							$("#use").after("<font color='red'>该设备已使用</font>");
+						}else {
+							alert("没有该设备！");
+						}
+					});
+					
+				}else {
+					alert("设备编号不能为空！");
+					this.focus();
+				}
+			});
+			
+			/*使用设备*/
+			$("#use").button().on( "click", function() {
 				$.post("<%=request.getContextPath()%>/use.do", 
 						{"num":$("#mNum").val()}, function(data){
 				});
 			});
+			
 		});
 
 	</script>

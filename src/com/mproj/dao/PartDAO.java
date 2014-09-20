@@ -1,6 +1,7 @@
 package com.mproj.dao;
 
 import com.mproj.pojo.Part;
+import com.mproj.utils.PageUtil;
 
 public interface PartDAO {
 
@@ -18,5 +19,16 @@ public interface PartDAO {
 	 */
 	public Part query(String pNum);
 	
+	/**
+	 * 分页显示零件
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
+	public PageUtil<Part> list(int page, int pageSize);
 	
 }
+
+
+
+

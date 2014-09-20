@@ -19,6 +19,13 @@ public class PartTypeDAOImpl implements PartTypeDAO {
 		return sessionFactory.getCurrentSession();
 	}
 
+	
+	@Override
+	public void save(PartType type) {
+		
+		getSession().saveOrUpdate(type);
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<PartType> list() {
@@ -27,9 +34,5 @@ public class PartTypeDAOImpl implements PartTypeDAO {
 		
 		return ( List<PartType>)getSession().createQuery(hql).list();
 	}
-	
-	
-	
-	
 
 }

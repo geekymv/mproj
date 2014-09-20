@@ -49,7 +49,6 @@ public class MachineDAOImpl implements MachineDAO{
 	@SuppressWarnings("unchecked")
 	@Override
 	public PageUtil<Machine> queryAllByPage(int pageNO, int pageSize) {
-		
 		PageUtil<Machine> pageUtil = new PageUtil<Machine>();
 		
 		List<Machine> machines = getSession().createQuery("from Machine")
@@ -60,9 +59,6 @@ public class MachineDAOImpl implements MachineDAO{
 //		System.out.println("总记录数 = " + rowCounts);
 		
 		pageUtil.getTotalPage(rowCounts, pageSize);	//总页数
-		
-		
-		
 		pageUtil.setDatas(machines);
 		
 		return pageUtil;

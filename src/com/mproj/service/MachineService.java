@@ -52,5 +52,12 @@ public interface MachineService {
 	 * @return
 	 */
 	public List<Part> queryParts(String mNum);
+
+	/**
+	 * 判断该设备是否已使用
+	 * @param num
+	 * @return true 已使用，false 未使用
+	 */
+	public boolean machineIsUesed(String num);
 	
 }

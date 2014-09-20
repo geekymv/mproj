@@ -1,6 +1,5 @@
 package com.mproj.action.machine;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -31,9 +30,7 @@ public class MachineAction extends ActionSupport implements RequestAware{
 	private Integer id;	//设备id
 	
 	private int page = 1;	//第几页
-	
-	
-	
+
 	/**
 	 * 跳转至使用设备页面
 	 * @return
