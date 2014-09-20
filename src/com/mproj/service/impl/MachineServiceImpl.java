@@ -95,12 +95,26 @@ public class MachineServiceImpl implements MachineService {
 		record.setStartDate(mp.getUseDate());
 		record.setEndDate(new Date());
 		
-		
+		partDAO.savePartUsageRecord(record);
 		
 		//①将零件从设备上拆解 
+		machineDAO.deleteMachinePart(mp);
 		
-		//③更新零件的已使用时间
+		//③更新零件的已使用年限
+		
+		Date end = record.getEndDate();
+		Date start = record.getStartDate();
+		
+		long result = end.getTime() - start.getTime();	//毫秒
+		
+		long days = result / (1000 * 60 * 60 * 24); 
 
+		System.out.println("day = " + days);
+		
+		Part part = record.getPart();
+		part.setUsedYear((float)(days/365.0));
+		partDAO.save(part);
+		
 	}
 
 }

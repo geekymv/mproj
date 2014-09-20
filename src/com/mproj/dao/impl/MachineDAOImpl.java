@@ -1,8 +1,6 @@
 package com.mproj.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import com.mproj.dao.MachineDAO;
 import com.mproj.dto.MachinePart;
 import com.mproj.pojo.Machine;
-import com.mproj.pojo.Part;
 import com.mproj.utils.PageUtil;
 
 @Repository("machineDAO")
@@ -31,7 +28,6 @@ public class MachineDAOImpl implements MachineDAO{
 		
 		return machine;
 	}
-	
 	
 	
 	@Override
@@ -94,11 +90,12 @@ public class MachineDAOImpl implements MachineDAO{
 		
 	}
 
+	
+	
 	@Override
 	public void saveMachinePart(MachinePart machinePart) {
 	
 		getSession().saveOrUpdate(machinePart);
-		
 	}
 
 	@Override
@@ -110,6 +107,11 @@ public class MachineDAOImpl implements MachineDAO{
 			.setInteger(0, mNum).setInteger(1, pNum).uniqueResult();
 	
 		return mp;
+	}
+	
+	@Override
+	public void deleteMachinePart(MachinePart mp) {
+		getSession().delete(mp);
 	}
 
 }

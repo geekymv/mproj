@@ -31,11 +31,17 @@ public class RepairAction extends ActionSupport {
 	 */
 	public String repair() throws Exception {
 		
+		System.out.println("m = " + mNum);
+		System.out.println("p = " + pNum);
+		
 		machineService.repair(mNum, pNum);
 		
 		return "repair";
 	}
-
+	public String prerepair() throws Exception {
+		
+		return "prerepair";
+	}
 
 	public Integer getmNum() {
 		return mNum;

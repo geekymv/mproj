@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mproj.dao.PartDAO;
+import com.mproj.dto.PartUsageRecord;
 import com.mproj.pojo.Part;
 import com.mproj.utils.PageUtil;
 
@@ -72,7 +73,10 @@ public class PartDAOImpl implements PartDAO {
 	}
 
 
-
-	
+	@Override
+	public void savePartUsageRecord(PartUsageRecord record) {
+		
+		getSession().save(record);
+	}
 
 }

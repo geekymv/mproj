@@ -40,7 +40,10 @@
 			<result name="use" type="json"></result>
 		</action>
 		
-			
+		<!-- 设备维修 -->
+		<action name="myrepair" class="repairAction" method="repair">
+			<result name="repair" type="json"></result>
+		</action>	
 		
     </package>
     
@@ -56,13 +59,19 @@
 		<action name="query">
 			<result>/WEB-INF/machine/query.jsp</result>
 		</action>
+		
+		<!-- 跳转到use.jsp页面 -->
 		<action name="use" class="machineAction" method="preuse">
 			<result name="preuse">/WEB-INF/machine/use.jsp</result>
 		</action>
 		
+		<!-- 跳转到repair.jsp页面 -->
+		<action name="prerepair" class="repairAction" method="prerepair">
+			<result name="prerepair">/WEB-INF/machine/repair.jsp</result>
+		</action>
+
     	
     	<action name="machine-*" class="machineAction" method="{1}">
-			
 			<result name="success">/WEB-INF/machine/list.jsp</result>
 			<result name="add">/WEB-INF/machine/add.jsp</result>
 			<result name="save" type="redirectAction">machine-list</result>

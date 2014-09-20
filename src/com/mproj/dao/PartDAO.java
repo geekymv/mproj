@@ -1,5 +1,6 @@
 package com.mproj.dao;
 
+import com.mproj.dto.PartUsageRecord;
 import com.mproj.pojo.Part;
 import com.mproj.utils.PageUtil;
 
@@ -34,6 +35,12 @@ public interface PartDAO {
 	 * @return
 	 */
 	public PageUtil<Part> list(int page, int pageSize);
+
+	/**
+	 * 保存零件使用记录
+	 * @param record
+	 */
+	public void savePartUsageRecord(PartUsageRecord record);
 	
 }
 

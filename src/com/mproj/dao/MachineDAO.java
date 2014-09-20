@@ -65,6 +65,12 @@ public interface MachineDAO {
 	 * @return
 	 */
 	public MachinePart queryMachinePart(Integer mNum, Integer pNum);
+
+	/**
+	 * 删除
+	 * @param mp
+	 */
+	public void deleteMachinePart(MachinePart mp);
 	
 }
 
