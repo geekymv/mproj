@@ -27,6 +27,7 @@ public class PartAction extends ActionSupport implements RequestAware {
 	private PartTypeService partTypeService;
 	
 	private Part part;
+	private Integer id;	//零件id
 	
 	private int page = 1;	//第几页
 	/**
@@ -77,7 +78,13 @@ public class PartAction extends ActionSupport implements RequestAware {
 	
 	public String edit() throws Exception {
 		
-		
+		//获得所有零件类型
+		List<PartType> partTypes = partTypeService.list();
+		request.put("partTypes", partTypes);
+
+		//根据设备id查询设备信息
+		part = partService.query(id);
+		request.put("part", part);
 		
 		return "edit";
 	}
@@ -94,6 +101,13 @@ public class PartAction extends ActionSupport implements RequestAware {
 	}
 	public void setPart(Part part) {
 		this.part = part;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public int getPage() {

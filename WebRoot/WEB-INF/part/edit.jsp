@@ -25,26 +25,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   	<h1>修改零件信息</h1>
-	  	<form action="machine/machine-save" method="post">
+	  	<form action="part/part-save" method="post">
 	  		<%--设备id --%>
-		  	<input type="hidden" name="machine.id" value="${machine.id }"/>	<br/>
+		  	<input type="hidden" name="part.id" value="${part.id }"/>	<br/>
 		  	
-		  	设备编号：<input type="text" name="machine.num" value="${machine.num }" readonly="readonly"/> <br/>
-		  	设备名称：<input type="text" name="machine.name" value="${machine.name }"> <br/>
-		  	使用年限：<input type="text" name="machine.useYear" value="${machine.useYear }"> <br/>
-		  	生产日期：<input type="text" name="machine.proDate" value="${machine.proDate }"> <br/>
-		  	<s:if test="machine.useDate != null">
-		  	 	使用日期：<input type="text" name="machine.useDate" value="${machine.useDate }"> <br/>
+		  	零件编号：<input type="text" name="part.num" value="${part.num }" readonly="readonly"/> <br/>
+		  	零件名称：<input type="text" name="part.name" value="${part.name }"> <br/>
+		  	使用年限：<input type="text" name="part.useYear" value="${part.useYear }"> <br/>
+		  	已使用年限：<input type="text" name="part.usedYear" value="${part.usedYear }" readonly="readonly"> <br/>
+		  	生产日期：<input type="text" name="part.proDate" value="${part.proDate }"> <br/>
+		  	<s:if test="part.useDate != null">
+		  	 	使用日期：<input type="text" name="part.useDate" value="${part.useDate }"> <br/>
 		  	</s:if>
 		 
-		  	供应商：<input type="text" name="machine.suppliper" value="${machine.suppliper }"> <br/>
-		  	功能简介：<input type="text" name="machine.function" value="${machine.function }"> <br/>
+		  	供应商：<input type="text" name="part.supplier" value="${part.supplier }"> <br/>
 		  	
 		  	<%--是否使用 --%>
-		  	<input type="hidden" name="machine.status" value="${machine.status }"> <br/>
+		  	<input type="hidden" name="machine.status" value="${part.status }"> <br/>
 			<%--为简单起见，这里使用struts2标签--%>
-		  		<s:select list="#request.machineTypes"
-				name="machine.type.id" label="设备类型"
+		  		<s:select list="#request.partTypes"
+				name="part.type.id" label="零件类型"
 				listKey="id" listValue="name">
 				
 				</s:select>	

@@ -13,6 +13,13 @@ public interface PartService {
 	public Part add(Part part);
 	
 	/**
+	 * 根据零件id查询零件
+	 * @param pNum
+	 * @return
+	 */
+	public Part query(Integer id);
+	
+	/**
 	 * 分页显示零件
 	 * @param page
 	 * @param pageSize

@@ -14,6 +14,10 @@ import javax.persistence.TemporalType;
 import com.mproj.pojo.Machine;
 import com.mproj.pojo.Part;
 
+/**
+ * 设备--零件中间类
+ * @author Geek_ymv
+ */
 @Entity
 @Table(name="t_machine_part")
 public class MachinePart {

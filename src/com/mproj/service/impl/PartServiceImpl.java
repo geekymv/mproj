@@ -21,12 +21,20 @@ public class PartServiceImpl implements PartService {
 		return partDAO.save(part);
 	}
 
-
+	@Override
+	public Part query(Integer id) {
+		
+		return partDAO.query(id);
+	}
 
 	@Override
 	public PageUtil<Part> list(int page, int pageSize) {
 		
 		return partDAO.list(page, pageSize);
 	}
+
+
+
+	
 	
 }

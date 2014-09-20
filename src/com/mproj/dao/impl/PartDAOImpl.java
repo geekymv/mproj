@@ -37,7 +37,13 @@ public class PartDAOImpl implements PartDAO {
 		return (Part) getSession().createQuery(hql)	//
 					.setString(0, pNum).uniqueResult();
 	}
-
+	
+	@Override
+	public Part query(Integer id) {
+		
+		return (Part) getSession().get(Part.class, id);
+	}
+	
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -64,7 +70,9 @@ public class PartDAOImpl implements PartDAO {
 		
 		return Integer.parseInt(String.valueOf(rowCounts));
 	}
-	
+
+
+
 	
 
 }

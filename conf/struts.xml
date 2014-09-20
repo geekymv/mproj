@@ -77,6 +77,9 @@
 		<action name="part-*" class="partAction" method="{1}">
 			<result name="add">/WEB-INF/part/add.jsp</result>
 			<result name="save" type="redirectAction">part-list</result>
+			
+			<result name="edit">/WEB-INF/part/edit.jsp</result>
+			
 			<result name="list">/WEB-INF/part/list.jsp</result>			
 		</action>	
 	
