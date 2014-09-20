@@ -15,21 +15,20 @@ import com.mproj.pojo.Machine;
 import com.mproj.pojo.Part;
 
 /**
- * 设备--零件中间类
+ * 零件使用记录
  * @author Geek_ymv
  */
 @Entity
-@Table(name="t_machine_part")
-public class MachinePart {
-	
-	private Integer id;
-	private Machine machine;
-	private Part part;
-	
-	private Date useDate;
-	
-	private Boolean isuse;	//零件是否在设备上
+@Table(name="t_part_record")
+public class PartUsageRecord {
 
+	private Integer id;
+	private Date startDate;
+	private Date endDate;
+	
+	private Part part;
+	private Machine machine;
+	
 	@Id
 	@GeneratedValue
 	public Integer getId() {
@@ -39,13 +38,20 @@ public class MachinePart {
 		this.id = id;
 	}
 	
-	@ManyToOne
-	@JoinColumn(name="machine_id")
-	public Machine getMachine() {
-		return machine;
+	@Temporal(TemporalType.DATE)
+	public Date getStartDate() {
+		return startDate;
 	}
-	public void setMachine(Machine machine) {
-		this.machine = machine;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+	
+	@Temporal(TemporalType.DATE)
+	public Date getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 	
 	@ManyToOne
@@ -56,19 +62,28 @@ public class MachinePart {
 	public void setPart(Part part) {
 		this.part = part;
 	}
-	@Temporal(TemporalType.DATE)
-	public Date getUseDate() {
-		return useDate;
+	@ManyToOne
+	@JoinColumn(name="machine_id")
+	public Machine getMachine() {
+		return machine;
 	}
-	public void setUseDate(Date useDate) {
-		this.useDate = useDate;
+	public void setMachine(Machine machine) {
+		this.machine = machine;
 	}
 	
-	public Boolean getIsuse() {
-		return isuse;
-	}
-	public void setIsuse(Boolean isuse) {
-		this.isuse = isuse;
-	}
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

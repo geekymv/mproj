@@ -85,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     				html += "<tr>"
 
 						 + "<td align='center'>"+part.num+"</td>"+ "<td>"+part.name+"</td>"
-						 + "<td>"+part.partType.name+"</td>" + "<td>"+part.proDate+"</td>"
+						 + "<td>"+part.type.name+"</td>" + "<td>"+part.proDate+"</td>"
 						 + "<td>"+part.useDate+"</td>" + "<td>"+part.useYear+"</td>" 
 						 + "<td>"+part.supplier+"</td>"
 						 +"</tr>";

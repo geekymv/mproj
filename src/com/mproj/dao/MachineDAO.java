@@ -35,7 +35,7 @@ public interface MachineDAO {
 	 * @param mNum
 	 * @return
 	 */
-	public List<Part> queryParts(String mNum);
+	public List<MachinePart> queryParts(String mNum);
 	
 
 	/**

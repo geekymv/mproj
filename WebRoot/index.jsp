@@ -10,137 +10,140 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<head>
 	<base href="<%=basePath%>">
 	<meta charset="utf-8">
-	<title>Bootstrap3.2</title>
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">	
+	<title>首页</title>
+	
+	<link rel="stylesheet" type="text/css" href="bootmetro/css/bootmetro.css" />
+	<link rel="stylesheet" type="text/css" href="bootmetro/css/bootmetro-icons.css" />
+	<link rel="stylesheet" type="text/css" href="bootmetro/css/bootmetro-ui-light.css" />
+
+	<script type="text/javascript" src="bootmetro/js/jquery-1.10.0.js"></script>
+	<script type="text/javascript" src="bootmetro/js/bootmetro.js"></script>
+	
 	
 	<style type="text/css">
-		.custom{
-			height:51px;
+		body {
+			background:url("img/bkg.jpg");
+		}
+		.container {
+			width: 80%;
 		}
 		
+		.listview-item {
+			width: 280px;
+		}
+		/*		
+		.span9 {
+			background: red;
+		}
+		.span3 {
+			background: blue;
+		}
+		*/
 		.footer {
 			background-color:  #333;
 			width: 100%;
 			height: 200px;
 			
-			margin-top: 450px;
+			margin-top: 150px;
 		}
-		
 	</style>
+	
 	
 	</head>
 
 <body>
 	<div class="container">
-
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		  <div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-              
-			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 			     
-               data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
+	
+	<div class="navbar">
+		<div class="navbar navbar-static-top">
+			<div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
-			  </button>
-              
-			  <a class="navbar-brand" href="#">
-              	<img alt="首页" src="img/index.png" height="25"/>
-              	首页
-              </a>
+			</a>
+			 
+			<!-- Be sure to leave the brand out there if you want it shown -->
+			<a class="brand" href="#">煤矿机械设备溯源系统</a>
+			 
+			<!-- Everything you want hidden at 940px or less, place within here -->
+			<div class="nav-collapse collapse">
+			<!-- .nav, .navbar-search, .navbar-form, etc -->
 			</div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-           <ul class="nav navbar-nav">
-                <li><a href="#">系统简介</a></li>
-                <li><a href="#">关于我们</a></li>
-              
-                <li role="presentation" class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-               		 开发人员
-                    <span class="caret"></span>
-                  </a>
-                 
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Geek_ymv</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                    
-                </li>
-                
-          </ul>
-          <form action="#" class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">搜索</button>
-          </form>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="login">登录 <span class="glyphicon glyphicon-log-in"></span></a></li>
-            <li class="divider-vertical"></li>
-            <li><a href="#">注册 <span class="glyphicon glyphicon-user"></span></a></li>
-          </ul>
-               
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-    <!-- 以上是导航菜单-->
-    
-    <!--空白处-->
-    <div class="custom">
-    
-    </div>
-    
+			 
+			</div>
+		</div>
+	</div>
     
     <div class="row">
-      <div class="col-md-8">
+      <div class="span9">
        <pre>
-	        这是我的导航条
-	           这是我的导航条
-	           
-	              这是我的导航条
-	                 这是我的导航条
-	                    这是我的导航条
-	                    
-	                       这是我的导航条
-	                          这是我的导航条
+       	系统简介：
+	    	通过RFID技术读取设备和零件的ID号，掌握设备的使用、维修情况，
+	    	实现煤矿机械设备整个生命周期的质量跟踪，为设备的安全可靠运行提供保障。
+	    	通过设备管理、零件管理、溯源管理和系统管理几个模块，实现系统的功能，达到用户的要求。
 		</pre>
       </div>
       
-      <div class="col-md-4">
-      	<pre>右边</pre>
-      	<img src="img/hello.jpg" alt="这是一张图片" title="这是一张图片吗" class="img-thumbnail">
-
-        <div class="btn-group">
-		  <button type="button" class="btn btn-success">Action</button>
-		  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-		    <span class="caret"></span>
-		    <span class="sr-only">Toggle Dropdown</span>
-		  </button>
-		  <ul class="dropdown-menu" role="menu">
-		    <li><a href="#">Action</a></li>
-		    <li><a href="#">Another action</a></li>
-		    <li><a href="#">Something else here</a></li>
-		    <li class="divider"></li>
-		    <li><a href="#">Separated link</a></li>
-		  </ul>
-		</div>
-		<br />
-		<a href="machine/machine-list.do">设备管理</a> <br />
-		<a>零件管理</a> <br />
-		<a>溯源管理</a> <br />
-		
-		
-		
+      <div class="span3">
+			<div class="listview list-layout">
+			<div class="listview-item bg-color-blue" onclick="location.href='<%=basePath%>machine/machine-list.do';">
+				<div class="pull-left">
+					<img class="listview-item-object icon icon-box" /> 
+				</div>
+				<div class="listview-item-body">
+					<h4 class="listview-item-heading">设备管理</h4>
+					<p class="two-lines">Body text that wraps over two lines.
+						Vivamus elementum semper nisi.</p>
+				</div>
+			</div>
+	
+			<div class="listview-item bg-color-green" onclick="location.href='<%=basePath%>part/part-list.do';">
+				<div class="pull-left">
+					<img class="listview-item-object icon icon-wrench" />
+				</div>
+				<div class="listview-item-body">
+					<h4 class="listview-item-heading">零件管理</h4>
+					<p>Single line. Lorem ipsum sin ut dolorem</p>
+					<p>Single line. Lorem ipsum sin ut dolorem</p>
+				</div>
+			</div>
+	
+			<div class="listview-item bg-color-orange">
+				<div class="pull-left" href="#">
+					<img class="listview-item-object icon icon-paperplane">
+				</div>
+				<div class="listview-item-body">
+					<h4 class="listview-item-heading">溯源管理</h4>
+					<p class="two-lines">
+						Body text that wraps over three lines.
+					</p>
+				</div>
+			</div>
+			<div class="listview-item bg-color-purple">	<!--  selected -->
+				<div class="pull-left" href="#">
+					<img class="listview-item-object icon icon-users">
+				</div>
+				<div class="listview-item-body">
+					<h4 class="listview-item-heading">用户管理</h4>
+					<p class="two-lines">Body text that wraps over two lines.
+						Vivamus elementum semper nisi.</p>
+				</div>
+			</div>
+	
+			<div class="listview-item bg-color-blue">
+				<div class="pull-left" href="#">
+					<div class="listview-item-object">
+						<img class="listview-item-object icon icon-cog"></img>
+					</div>
+				</div>
+				<div class="listview-item-body">
+					<h4 class="listview-item-heading">系统设置</h4>
+					<p class="two-lines">Body text that wraps over two lines,
+						IcoMoon icon on the left.</p>
+				</div>
+			</div>
+			</div>
       </div>
       
 	</div>

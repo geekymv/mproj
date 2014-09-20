@@ -37,9 +37,8 @@ public class AddPartAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
-		
-		System.out.println(machineNum);
-		System.out.println(partNum);
+//		System.out.println(machineNum);
+//		System.out.println(partNum);
 		
 		machineService.addPart(machineNum, partNum);
 		

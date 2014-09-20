@@ -1,11 +1,13 @@
 package com.mproj.action.machine;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import com.mproj.dto.MachinePart;
 import com.mproj.pojo.Part;
 import com.mproj.service.MachineService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -27,7 +29,14 @@ public class QueryPartsAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		
-		parts = machineService.queryParts(num);
+		List<MachinePart> machineParts = machineService.queryParts(num);
+		
+		parts = new ArrayList<Part>();
+		
+		for(MachinePart mp : machineParts) {
+			Part part = mp.getPart();
+			parts.add(part);
+		}
 		
 		return SUCCESS;
 	}

@@ -41,7 +41,7 @@ public class MachineServiceImpl implements MachineService {
 	}
 
 	@Override
-	public List<Part> queryParts(String mNum) {
+	public List<MachinePart> queryParts(String mNum) {
 		return machineDAO.queryParts(mNum);
 	}
 
@@ -64,8 +64,8 @@ public class MachineServiceImpl implements MachineService {
 		
 		machinePart.setMachine(machine);
 		machinePart.setPart(part);
-		machinePart.setStartDate(new Date());
-		machinePart.setUsable(true);
+		machinePart.setUseDate(new Date());
+		machinePart.setIsuse(true);
 		
 		machineDAO.saveMachinePart(machinePart);
 	}

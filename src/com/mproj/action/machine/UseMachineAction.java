@@ -50,8 +50,10 @@ public class UseMachineAction extends ActionSupport {
 		
 		Machine machine = machineService.query(num);
 		
-		machine.setStatus(true);	//设置设备状态为使用(true)
-		machine.setUseDate(new Date());	//设置使用日期
+		if(machine.getStatus() == false){	//该设备还未使用
+			machine.setStatus(true);	//设置设备状态为使用(true)
+			machine.setUseDate(new Date());	//设置使用日期
+		}
 		
 		machineService.save(machine);
 

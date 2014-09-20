@@ -118,6 +118,7 @@ public class Part {
 	}
 
 	@OneToMany(mappedBy="part")
+	@JSON(serialize=false)
 	public Set<MachinePart> getMachineParts() {
 		return machineParts;
 	}

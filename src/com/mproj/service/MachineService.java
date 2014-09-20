@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.mproj.dto.MachinePart;
 import com.mproj.pojo.Machine;
-import com.mproj.pojo.Part;
 import com.mproj.utils.PageUtil;
 
 public interface MachineService {
@@ -51,7 +50,7 @@ public interface MachineService {
 	 * @param mNum
 	 * @return
 	 */
-	public List<Part> queryParts(String mNum);
+	public List<MachinePart> queryParts(String mNum);
 
 	/**
 	 * 判断该设备是否已使用

@@ -66,11 +66,10 @@ public class MachineDAOImpl implements MachineDAO{
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Part> queryParts(String mNum) {
-
+	public List<MachinePart> queryParts(String mNum) {
 		Machine machine = query(mNum);
 		
-		String hql = "from Part p where p.machine = ? order by p.useDate";
+		String hql = "from MachinePart mp where mp.machine=? and mp.usable=true order by startDate";
 
 		return getSession().createQuery(hql).setEntity(0, machine).list();
 	}

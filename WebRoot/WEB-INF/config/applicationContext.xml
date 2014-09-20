@@ -44,6 +44,7 @@
 				<value>com.mproj.pojo.MachineType</value>
 				<value>com.mproj.pojo.Part</value>
 				<value>com.mproj.pojo.PartType</value>
+				<value>com.mproj.dto.PartUsageRecord</value>
 				<value>com.mproj.dto.MachinePart</value>
 				<value>com.mproj.pojo.User</value>
 			</list>
