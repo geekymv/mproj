@@ -58,5 +58,13 @@ public interface MachineService {
 	 * @return true 已使用，false 未使用
 	 */
 	public boolean machineIsUesed(String num);
+
+	/**
+	 * 设备维修：
+	 * ①将零件从设备上拆解
+	 * ②在零件使用记录表中添加使用记录
+	 * ③更新零件的已使用时间
+	 */
+	public void repair(Integer mNum, Integer pNum);
 	
 }

@@ -8,7 +8,7 @@ import com.mproj.service.MachineService;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 给一个设备添加零件
+ * 给设备添加零件
  */
 @Controller("addPartAction")
 @Scope("prototype")
@@ -21,6 +21,16 @@ public class AddPartAction extends ActionSupport {
 	private String machineNum;
 	private String partNum;
 
+	
+
+
+	@Override
+	public String execute() throws Exception {
+		machineService.addPart(machineNum, partNum);
+		
+		return SUCCESS;
+	}
+	
 	public String getMachineNum() {
 		return machineNum;
 	}
@@ -33,17 +43,5 @@ public class AddPartAction extends ActionSupport {
 	public void setPartNum(String partNum) {
 		this.partNum = partNum;
 	}
-
-
-	@Override
-	public String execute() throws Exception {
-//		System.out.println(machineNum);
-//		System.out.println(partNum);
-		
-		machineService.addPart(machineNum, partNum);
-		
-		return SUCCESS;
-	}
-	
 	
 }

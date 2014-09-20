@@ -69,7 +69,7 @@ public class MachineDAOImpl implements MachineDAO{
 	public List<MachinePart> queryParts(String mNum) {
 		Machine machine = query(mNum);
 		
-		String hql = "from MachinePart mp where mp.machine=? and mp.usable=true order by startDate";
+		String hql = "from MachinePart mp where mp.machine=? and mp.isuse=true order by useDate";
 
 		return getSession().createQuery(hql).setEntity(0, machine).list();
 	}
@@ -99,6 +99,17 @@ public class MachineDAOImpl implements MachineDAO{
 	
 		getSession().saveOrUpdate(machinePart);
 		
+	}
+
+	@Override
+	public MachinePart queryMachinePart(Integer mNum, Integer pNum) {
+		
+		String hql = "from MachinePart mp where mp.machine.num=? and mp.part.num=?";
+		
+		MachinePart mp = (MachinePart)getSession().createQuery(hql)
+			.setInteger(0, mNum).setInteger(1, pNum).uniqueResult();
+	
+		return mp;
 	}
 
 }

@@ -58,6 +58,14 @@ public interface MachineDAO {
 	 */
 	public void saveMachinePart(MachinePart machinePart);
 	
+	/**
+	 * 查询
+	 * @param mNum 设备编号
+	 * @param pNum 零件编号
+	 * @return
+	 */
+	public MachinePart queryMachinePart(Integer mNum, Integer pNum);
+	
 }
 
 

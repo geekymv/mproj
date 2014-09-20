@@ -24,7 +24,6 @@ public class UseMachineAction extends ActionSupport {
 	private MachineService machineService;
 	
 	private InputStream inputStream;
-	
 	private String num;	//设备编号
 	
 	

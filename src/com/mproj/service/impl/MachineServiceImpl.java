@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.mproj.dao.MachineDAO;
 import com.mproj.dao.PartDAO;
 import com.mproj.dto.MachinePart;
+import com.mproj.dto.PartUsageRecord;
 import com.mproj.pojo.Machine;
 import com.mproj.pojo.Part;
 import com.mproj.service.MachineService;
@@ -53,8 +54,10 @@ public class MachineServiceImpl implements MachineService {
 
 	@Override
 	public void addPart(String mNum, String pNum) {
+		
 		Machine machine = machineDAO.query(mNum);
 		Part part = partDAO.query(pNum);
+
 		if(null == part.getUseDate()){	//第一次使用
 			part.setUseDate(new Date());	
 			partDAO.save(part);
@@ -76,6 +79,28 @@ public class MachineServiceImpl implements MachineService {
 		Machine machine = machineDAO.query(num);
 		
 		return machine.getStatus();
+	}
+
+	
+	@Override
+	public void repair(Integer mNum, Integer pNum) {
+		
+		//查询
+		MachinePart mp = machineDAO.queryMachinePart(mNum, pNum);
+		//②在零件使用记录表中添加使用记录 
+		PartUsageRecord record = new PartUsageRecord();
+		
+		record.setMachine(mp.getMachine());
+		record.setPart(mp.getPart());
+		record.setStartDate(mp.getUseDate());
+		record.setEndDate(new Date());
+		
+		
+		
+		//①将零件从设备上拆解 
+		
+		//③更新零件的已使用时间
+
 	}
 
 }
