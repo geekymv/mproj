@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>零件管理</title>
+    <title>零件使用记录</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       
       <div class="col-md-10">
         <div class="panel panel-primary">
-          <div class="panel-heading">零件管理</div>
+          <div class="panel-heading">零件使用记录</div>
           <div class="panel-body">
             <p>Panel body</p>
           </div>

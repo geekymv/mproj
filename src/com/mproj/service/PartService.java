@@ -1,5 +1,6 @@
 package com.mproj.service;
 
+import com.mproj.dto.PartUsageRecord;
 import com.mproj.pojo.Part;
 import com.mproj.utils.PageUtil;
 
@@ -26,6 +27,16 @@ public interface PartService {
 	 * @return
 	 */
 	public PageUtil<Part> list(int page, int pageSize);
+
+	/**
+	 * 分页查询零件使用记录
+	 * @param partNum
+	 * @param pageSize 
+	 * @param page 
+	 * @return
+	 */
+	public PageUtil<PartUsageRecord> queryPartUsageRecord(String partNum, int page, int pageSize);
+
 	
 	
 }

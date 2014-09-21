@@ -67,16 +67,53 @@ public class PartDAOImpl implements PartDAO {
 		Long rowCounts = (Long) getSession()	//
 				.createQuery("select count(*) from Part").uniqueResult();
 		
-		System.out.println("总记录数 = " + rowCounts);
-		
 		return Integer.parseInt(String.valueOf(rowCounts));
 	}
 
 
 	@Override
 	public void savePartUsageRecord(PartUsageRecord record) {
-		
 		getSession().save(record);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public PageUtil<PartUsageRecord> queryPartUsageRecord(String partNum,
+			int page, int pageSize) {
+	
+		PageUtil<PartUsageRecord> pageUtil = new PageUtil<PartUsageRecord>();
+		
+		List<PartUsageRecord> records = (List<PartUsageRecord>)getSession()	//
+				.createQuery("from PartUsageRecord pur where pur.part.num=?")	//
+				.setString(0, partNum)	//
+				.setFirstResult((page-1)*pageSize)	//
+				.setMaxResults(pageSize)	//
+				.list();	
+		
+		pageUtil.setDatas(records);
+		pageUtil.getTotalPage(records.size(), pageSize);
+		
+//		System.out.println("records = " + records.get(0).getEndDate());
+		
+		return pageUtil;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

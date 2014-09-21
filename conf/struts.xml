@@ -81,17 +81,21 @@
     </package>
 	
 	<!-- 零件 -->
-	<package name="part" namespace="/part" extends="struts-default">
-		
+	<package name="part" namespace="/part" extends="json-default">
 		<action name="part-*" class="partAction" method="{1}">
 			<result name="add">/WEB-INF/part/add.jsp</result>
 			<result name="save" type="redirectAction">part-list</result>
-			
 			<result name="edit">/WEB-INF/part/edit.jsp</result>
-			
 			<result name="list">/WEB-INF/part/list.jsp</result>			
 		</action>	
 	
+		<action name="record" class="partUsageRecordAction" method="prerecord">
+			<result name="prerecord">/WEB-INF/part/record.jsp</result>
+		</action>
+		<action name="record-list" class="partUsageRecordAction" method="record">
+			<result name="record" type="json"></result>
+		</action>
+		
 	</package>
 	
 	

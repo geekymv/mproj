@@ -59,6 +59,7 @@ public class MachineServiceImpl implements MachineService {
 		Part part = partDAO.query(pNum);
 
 		if(null == part.getUseDate()){	//第一次使用
+			part.setStatus(true);
 			part.setUseDate(new Date());	
 			partDAO.save(part);
 		}
@@ -83,8 +84,7 @@ public class MachineServiceImpl implements MachineService {
 
 	
 	@Override
-	public void repair(Integer mNum, Integer pNum) {
-		
+	public void repair(String mNum, String pNum) {
 		//查询
 		MachinePart mp = machineDAO.queryMachinePart(mNum, pNum);
 		//②在零件使用记录表中添加使用记录 
@@ -94,6 +94,7 @@ public class MachineServiceImpl implements MachineService {
 		record.setPart(mp.getPart());
 		record.setStartDate(mp.getUseDate());
 		record.setEndDate(new Date());
+		record.setUsable(true);	//设置零件为可用状态
 		
 		partDAO.savePartUsageRecord(record);
 		
@@ -101,18 +102,16 @@ public class MachineServiceImpl implements MachineService {
 		machineDAO.deleteMachinePart(mp);
 		
 		//③更新零件的已使用年限
-		
 		Date end = record.getEndDate();
 		Date start = record.getStartDate();
 		
 		long result = end.getTime() - start.getTime();	//毫秒
-		
 		long days = result / (1000 * 60 * 60 * 24); 
 
-		System.out.println("day = " + days);
-		
 		Part part = record.getPart();
-		part.setUsedYear((float)(days/365.0));
+		part.setStatus(false);	//将零件更改为未使用状态
+		part.setUsedYear(part.getUsedYear() + (float)(days/365.0));
+		
 		partDAO.save(part);
 		
 	}

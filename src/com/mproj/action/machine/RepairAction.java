@@ -20,9 +20,8 @@ public class RepairAction extends ActionSupport {
 	@Autowired
 	private MachineService machineService;
 	
-	private Integer mNum;
-	private Integer pNum;
-	
+	private String machineNum;
+	private String partNum;
 	
 	/**
 	 * 设备维修
@@ -31,10 +30,10 @@ public class RepairAction extends ActionSupport {
 	 */
 	public String repair() throws Exception {
 		
-		System.out.println("m = " + mNum);
-		System.out.println("p = " + pNum);
+		System.out.println("m = " + machineNum);
+		System.out.println("p = " + partNum);
 		
-		machineService.repair(mNum, pNum);
+		machineService.repair(machineNum, partNum);
 		
 		return "repair";
 	}
@@ -42,19 +41,20 @@ public class RepairAction extends ActionSupport {
 		
 		return "prerepair";
 	}
-
-	public Integer getmNum() {
-		return mNum;
+	
+	public String getMachineNum() {
+		return machineNum;
 	}
-	public void setmNum(Integer mNum) {
-		this.mNum = mNum;
+	public void setMachineNum(String machineNum) {
+		this.machineNum = machineNum;
 	}
-
-	public Integer getpNum() {
-		return pNum;
+	public String getPartNum() {
+		return partNum;
 	}
-	public void setpNum(Integer pNum) {
-		this.pNum = pNum;
+	public void setPartNum(String partNum) {
+		this.partNum = partNum;
 	}
+	
+	
 	
 }

@@ -65,6 +65,6 @@ public interface MachineService {
 	 * ②在零件使用记录表中添加使用记录
 	 * ③更新零件的已使用时间
 	 */
-	public void repair(Integer mNum, Integer pNum);
+	public void repair(String mNum, String pNum);
 	
 }

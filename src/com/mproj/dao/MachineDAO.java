@@ -64,7 +64,7 @@ public interface MachineDAO {
 	 * @param pNum 零件编号
 	 * @return
 	 */
-	public MachinePart queryMachinePart(Integer mNum, Integer pNum);
+	public MachinePart queryMachinePart(String mNum, String pNum);
 
 	/**
 	 * 删除

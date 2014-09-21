@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <div class="panel-heading">使用设备</div>
           	
           	请输入设备编号：<input type="text" id="mNum" name="mNum"/>
-          	零件编号：<input type="text" id="Num" name="pNum"/>
+          	零件编号：<input type="text" id="pNum" name="pNum"/>
           	
           	<button id="repair">拆解</button>
           	
@@ -98,8 +98,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(function() {
 			/*拆解零件*/
 			$("#repair").button().on( "click", function() {
+				
+				alert($("#mNum").val() + ",," + $("#pNum").val());
+				
 				$.post("<%=request.getContextPath()%>/myrepair.do", 
-						{"mNum":$("#mNum").val(), "pNum":$("#pNum").val()}, function(data){
+						{"machineNum":$("#mNum").val(), "partNum":$("#pNum").val()}, function(data){
 							
 				});
 			});

@@ -29,6 +29,8 @@ public class PartUsageRecord {
 	private Part part;
 	private Machine machine;
 	
+	private Boolean usable;	//零件是否可用，true可用 false报废
+	
 	@Id
 	@GeneratedValue
 	public Integer getId() {
@@ -69,6 +71,13 @@ public class PartUsageRecord {
 	}
 	public void setMachine(Machine machine) {
 		this.machine = machine;
+	}
+	
+	public Boolean getUsable() {
+		return usable;
+	}
+	public void setUsable(Boolean usable) {
+		this.usable = usable;
 	}
 	
 }

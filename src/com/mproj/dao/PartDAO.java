@@ -41,6 +41,16 @@ public interface PartDAO {
 	 * @param record
 	 */
 	public void savePartUsageRecord(PartUsageRecord record);
+
+	/**
+	 * 分页查询零件使用记录
+	 * @param partNum
+	 * @param pageSize 
+	 * @param page 
+	 * @return
+	 */
+	public PageUtil<PartUsageRecord> queryPartUsageRecord(String partNum, int page, int pageSize);
+	
 	
 }
 

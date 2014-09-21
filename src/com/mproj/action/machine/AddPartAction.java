@@ -21,8 +21,6 @@ public class AddPartAction extends ActionSupport {
 	private String machineNum;
 	private String partNum;
 
-	
-
 
 	@Override
 	public String execute() throws Exception {
