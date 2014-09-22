@@ -79,6 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <div class="form">
 	          <form action="type/parttype-save" method="post">
 			  	零件类型名称：<input type="text" name="type.name" />
+			  	
 			    <input type="submit" id="add" value="添加"/>	
 	    	</form>
 		</div>

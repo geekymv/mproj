@@ -107,6 +107,12 @@
 	<package name="parttype" namespace="/type" extends="struts-default">
 		<action name="parttype-*" class="partTypeAction" method="{1}">
 			<result name="add">/WEB-INF/part/add-type.jsp</result>
+			
+			<!-- 跳转至添加零件页面 -->
+			<result name="save" type="redirectAction">
+				<param name="namespace">/part</param>
+				<param name="actionName">part-add</param>
+			</result>
 		</action>
 	</package>
 	
