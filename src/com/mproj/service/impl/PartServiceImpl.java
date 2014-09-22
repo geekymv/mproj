@@ -1,5 +1,7 @@
 package com.mproj.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +38,12 @@ public class PartServiceImpl implements PartService {
 			int page, int pageSize) {
 		
 		return partDAO.queryPartUsageRecord(partNum, page, pageSize);
+	}
+
+	@Override
+	public List<PartUsageRecord> queryPartUsageRecord(String partNum) {
+		
+		return partDAO.queryPartUsageRecord(partNum);
 	}
 
 	

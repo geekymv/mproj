@@ -1,5 +1,7 @@
 package com.mproj.dao;
 
+import java.util.List;
+
 import com.mproj.dto.PartUsageRecord;
 import com.mproj.pojo.Part;
 import com.mproj.utils.PageUtil;
@@ -50,6 +52,13 @@ public interface PartDAO {
 	 * @return
 	 */
 	public PageUtil<PartUsageRecord> queryPartUsageRecord(String partNum, int page, int pageSize);
+
+	/**
+	 * 查询零件的使用记录
+	 * @param partNum
+	 * @return
+	 */
+	public List<PartUsageRecord> queryPartUsageRecord(String partNum);
 	
 	
 }

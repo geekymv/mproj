@@ -1,15 +1,13 @@
 package com.mproj.action.part;
 
-import java.util.Map;
+import java.util.List;
 
-import org.apache.struts2.interceptor.RequestAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.mproj.dto.PartUsageRecord;
 import com.mproj.service.PartService;
-import com.mproj.utils.PageUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -17,7 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 @Controller("partUsageRecordAction")
 @Scope("prototype")
-public class PartUsageRecordAction extends ActionSupport implements RequestAware {
+public class PartUsageRecordAction extends ActionSupport {
 	private static final long serialVersionUID = 4329078070901872869L;
 
 	@Autowired
@@ -25,7 +23,9 @@ public class PartUsageRecordAction extends ActionSupport implements RequestAware
 	
 	private String partNum;	//零件编号
 	
-	private int page = 1;
+//	private int page = 1;
+	
+	private List<PartUsageRecord> partUsageRecords;
 	
 	/**
 	 * 查看零件的使用记录
@@ -33,10 +33,9 @@ public class PartUsageRecordAction extends ActionSupport implements RequestAware
 	 * @throws Exception
 	 */
 	public String record() throws Exception {
-		
-		PageUtil<PartUsageRecord> pageUtil = partService.queryPartUsageRecord(partNum, page, 5);
-		
-		request.put("pageUtil", pageUtil);
+//		PageUtil<PartUsageRecord> pageUtil = partService.queryPartUsageRecord(partNum, page, 5);
+
+		partUsageRecords = partService.queryPartUsageRecord(partNum);
 		
 		return "record";
 	}
@@ -49,27 +48,27 @@ public class PartUsageRecordAction extends ActionSupport implements RequestAware
 		return "prerecord";
 	}
 	
-	
-	private Map<String, Object> request;
-	@Override
-	public void setRequest(Map<String, Object> request) {
-		this.request = request;
-	}
-	
 	public String getPartNum() {
 		return partNum;
 	}
 	public void setPartNum(String partNum) {
 		this.partNum = partNum;
 	}
-
-	public int getPage() {
-		return page;
-	}
-	public void setPage(int page) {
-		this.page = page;
-	}
 	
+	public List<PartUsageRecord> getPartUsageRecords() {
+		return partUsageRecords;
+	}
+	public void setPartUsageRecords(List<PartUsageRecord> partUsageRecords) {
+		this.partUsageRecords = partUsageRecords;
+	}
+
+//	public int getPage() {
+//		return page;
+//	}
+//	public void setPage(int page) {
+//		this.page = page;
+//	}
+
 }
 
 

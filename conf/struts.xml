@@ -95,8 +95,15 @@
 		<action name="record-list" class="partUsageRecordAction" method="record">
 			<result name="record" type="json"></result>
 		</action>
-		
 	</package>
+	
+	<package name="parttype" namespace="/type" extends="struts-default">
+		<action name="parttype-*" class="partTypeAction" method="{1}">
+			<result name="add">/WEB-INF/part/add-type.jsp</result>
+		</action>
+	
+	</package>
+	
 	
 	
 	<!-- 用户 -->

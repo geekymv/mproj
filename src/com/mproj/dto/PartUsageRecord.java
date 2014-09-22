@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.apache.struts2.json.annotations.JSON;
+
 import com.mproj.pojo.Machine;
 import com.mproj.pojo.Part;
 
@@ -41,6 +43,7 @@ public class PartUsageRecord {
 	}
 	
 	@Temporal(TemporalType.DATE)
+	@JSON(format="yyyy-MM-dd")
 	public Date getStartDate() {
 		return startDate;
 	}
@@ -49,6 +52,7 @@ public class PartUsageRecord {
 	}
 	
 	@Temporal(TemporalType.DATE)
+	@JSON(format="yyyy-MM-dd")
 	public Date getEndDate() {
 		return endDate;
 	}

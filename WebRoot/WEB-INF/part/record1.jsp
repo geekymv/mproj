@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>零件管理</title>
+    <title>零件使用记录</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -49,14 +49,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <a href="part/part-add.do" class="list-group-item">添加零件</a>
 			  <a href="part/part-list.do" class="list-group-item">零件列表</a>
 			  <a href="part/record.do" class="list-group-item">使用记录</a>
-			  <a href="type/parttype-add.do" class="list-group-item">添加零件类型</a>
 			</div>
 		</div>
       </div>
       
       <div class="col-md-10">
         <div class="panel panel-primary">
-          <div class="panel-heading">零件管理</div>
+          <div class="panel-heading">零件使用记录</div>
           <div class="panel-body">
             <p>Panel body</p>
           </div>

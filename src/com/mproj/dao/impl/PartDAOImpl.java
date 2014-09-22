@@ -98,6 +98,19 @@ public class PartDAOImpl implements PartDAO {
 		return pageUtil;
 	}
 
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<PartUsageRecord> queryPartUsageRecord(String partNum) {
+		
+		List<PartUsageRecord> records = (List<PartUsageRecord>)getSession()	//
+				.createQuery("from PartUsageRecord pur where pur.part.num=? order by pur.startDate")	//
+				.setString(0, partNum)	//
+				.list();	
+
+		return records;
+	}
+
 }
 
 
