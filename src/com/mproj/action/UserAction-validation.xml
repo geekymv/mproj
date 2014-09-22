@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC 
+  		"-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+<!-- 属性名优先的校验方式 -->
+<field name="username">
+		<field-validator type="requiredstring">
+			<message>用户名不能为空！ </message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">8</param>
+			<message key="username.invalid"></message>
+		</field-validator>
+</field>
+
+<field name="password">
+	<field-validator type="requiredstring">
+		<message>密码不能为空！ </message>
+	</field-validator>
+	<field-validator type="stringlength">
+		<param name="minLength">2</param>
+		<param name="maxLength">8</param>
+		<message>
+			密码的长度要求在${minLength}到8之间！
+		</message>
+	</field-validator>
+</field>
+
+</validators>
+
