@@ -11,7 +11,9 @@
 		<field-validator type="stringlength">
 			<param name="minLength">2</param>
 			<param name="maxLength">8</param>
-			<message key="username.invalid"></message>
+			<message>
+				用户名长度要求在${minLength}和${maxLength}之间
+			</message>
 		</field-validator>
 </field>
 

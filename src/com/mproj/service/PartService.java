@@ -46,6 +46,12 @@ public interface PartService {
 	 */
 	public List<PartUsageRecord> queryPartUsageRecord(String partNum);
 
+	/**
+	 * 零件报废
+	 * @param partNum
+	 */
+	public void scrap(String partNum);
+
 	
 	
 }

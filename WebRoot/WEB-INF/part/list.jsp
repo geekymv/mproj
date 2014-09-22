@@ -49,6 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <a href="part/part-add.do" class="list-group-item">添加零件</a>
 			  <a href="part/part-list.do" class="list-group-item">零件列表</a>
 			  <a href="part/record.do" class="list-group-item">使用记录</a>
+			  <a href="part/prescrap.do" class="list-group-item">报废零件</a>
 			  <a href="type/parttype-add.do" class="list-group-item">添加零件类型</a>
 			</div>
 		</div>

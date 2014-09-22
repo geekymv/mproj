@@ -1,11 +1,13 @@
 package com.mproj.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mproj.dao.PartDAO;
+import com.mproj.dto.PartScrap;
 import com.mproj.dto.PartUsageRecord;
 import com.mproj.pojo.Part;
 import com.mproj.service.PartService;
@@ -46,6 +48,23 @@ public class PartServiceImpl implements PartService {
 		return partDAO.queryPartUsageRecord(partNum);
 	}
 
-	
+	@Override
+	public void scrap(String partNum) {
+		List<PartUsageRecord> purs = partDAO.queryPartUsageRecord(partNum);
+		
+		for(PartUsageRecord pur : purs) {
+			pur.setUsable(false);
+		}
+		
+		Part part = partDAO.query(partNum);
+		
+		PartScrap partScrap = new PartScrap();
+		partScrap.setPart(part);
+		partScrap.setScrapDate(new Date());
+		
+		partDAO.save(partScrap);
+		
+		
+	}
 	
 }

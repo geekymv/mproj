@@ -69,14 +69,12 @@
 		<action name="prerepair" class="repairAction" method="prerepair">
 			<result name="prerepair">/WEB-INF/machine/repair.jsp</result>
 		</action>
-
     	
     	<action name="machine-*" class="machineAction" method="{1}">
 			<result name="list">/WEB-INF/machine/list.jsp</result>
 			<result name="add">/WEB-INF/machine/add.jsp</result>
 			<result name="save" type="redirectAction">machine-list</result>
 			<result name="edit">/WEB-INF/machine/edit.jsp</result>
-			
     	</action>
     </package>
 	
@@ -95,6 +93,15 @@
 		<action name="record-list" class="partUsageRecordAction" method="record">
 			<result name="record" type="json"></result>
 		</action>
+		
+		<!-- 页面跳转至scrap.jsp -->
+		<action name="prescrap" class="partScrapAction" method="prescrap">
+			<result name="prescrap">/WEB-INF/part/scrap.jsp</result>
+		</action>
+		<action name="scrap" class="partScrapAction" method="scrap">
+			<result name="scrap" type="json"></result>
+		</action>
+		
 	</package>
 	
 	<package name="parttype" namespace="/type" extends="struts-default">

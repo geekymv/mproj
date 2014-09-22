@@ -43,6 +43,12 @@ public class UserAction extends ActionSupport implements SessionAware{
 		
 		return INPUT;
 	}
+	
+	@Override
+	public void validate() {
+		super.validate();
+	}
+	
 
 	private Map<String, Object> session;	
 	@Override

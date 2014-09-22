@@ -2,6 +2,7 @@ package com.mproj.dao;
 
 import java.util.List;
 
+import com.mproj.dto.PartScrap;
 import com.mproj.dto.PartUsageRecord;
 import com.mproj.pojo.Part;
 import com.mproj.utils.PageUtil;
@@ -59,8 +60,13 @@ public interface PartDAO {
 	 * @return
 	 */
 	public List<PartUsageRecord> queryPartUsageRecord(String partNum);
-	
-	
+
+	/**
+	 * 保存零件报废记录
+	 * @param partScrap
+	 */
+	public void save(PartScrap partScrap);
+
 }
 
 

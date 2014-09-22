@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </ul>
 		  <ul class="nav navbar-nav navbar-right">
 	         	<li>
-	         		<a href="employer/emp-empInfo.do">用户：${user.name } <span class="glyphicon glyphicon-user"></span>
+	         		<a href="employer/emp-empInfo.do">用户：${user.username } <span class="glyphicon glyphicon-user"></span>
 	         		</a>
 	         	</li>
 	           	<li class="divider-vertical"></li>
