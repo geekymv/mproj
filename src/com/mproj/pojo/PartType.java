@@ -17,7 +17,7 @@ import org.apache.struts2.json.annotations.JSON;
  *
  */
 @Entity
-@Table(name="t_partType")
+@Table(name="t_part_type")
 public class PartType {
 	
 	private Integer id;

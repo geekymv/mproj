@@ -57,14 +57,15 @@ public class PartServiceImpl implements PartService {
 		}
 		
 		Part part = partDAO.query(partNum);
+		part.setStatus("已报废");
+
+		partDAO.save(part);
 		
 		PartScrap partScrap = new PartScrap();
 		partScrap.setPart(part);
 		partScrap.setScrapDate(new Date());
 		
 		partDAO.save(partScrap);
-		
-		
 	}
-	
+
 }

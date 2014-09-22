@@ -12,4 +12,10 @@ public interface PartTypeService {
 	 */
 	public List<PartType> list();
 
+	/**
+	 * 保存
+	 * @param type
+	 */
+	public void save(PartType type);
+
 }

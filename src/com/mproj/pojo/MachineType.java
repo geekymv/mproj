@@ -6,7 +6,6 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -18,7 +17,7 @@ import org.apache.struts2.json.annotations.JSON;
  *
  */
 @Entity
-@Table(name="t_machineType")
+@Table(name="t_machine_type")
 public class MachineType {
 
 	private Integer id;

@@ -25,8 +25,7 @@ public class PartTypeAction extends ActionSupport {
 	 */
 	public String save() throws Exception {
 		
-		System.out.println(type.getName());
-		
+		partTypeService.save(type);
 		
 		return "save";
 	}

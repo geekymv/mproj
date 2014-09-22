@@ -94,15 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  			 -->
 				  			<td><s:property value="supplier"/></td>
 				  			<td><s:property value="type.name"/></td>
-				  			
-				  			<%--设备状态 --%>
-				  			<s:if test="status == false">
-				  				<td>未使用</td>
-				  			</s:if>
-				  			<s:else>
-				  				<td>已使用</td>
-				  			</s:else>
-
+				  			<td><s:property value="status"/></td>
 				  			<td>
 				  				<a href="part/part-edit.do?id=${id }">修改</a>|
 				  				<a href="part/part-delete.do?id=${id }">删除</a>

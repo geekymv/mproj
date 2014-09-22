@@ -20,6 +20,12 @@ public class PartTypeServiceImpl implements PartTypeService{
 		
 		return partTypeDAO.list();
 	}
+
+	@Override
+	public void save(PartType type) {
+
+		partTypeDAO.save(type);
+	}
 	
 	
 	

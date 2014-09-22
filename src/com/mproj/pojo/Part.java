@@ -36,7 +36,7 @@ public class Part {
 	private Float useYear;	//使用年限
 	private Float usedYear;	//已使用年限
 	private String supplier;	//供应商名称
-	private Boolean status;	//零件状态
+	private String status;	//零件状态
 
 	private PartType type;	//零件类型
 	
@@ -62,10 +62,10 @@ public class Part {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Boolean getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	

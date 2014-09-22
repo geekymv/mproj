@@ -59,7 +59,7 @@ public class MachineServiceImpl implements MachineService {
 		Part part = partDAO.query(pNum);
 
 		if(null == part.getUseDate()){	//第一次使用
-			part.setStatus(true);
+			part.setStatus("已使用");
 			part.setUseDate(new Date());	
 			partDAO.save(part);
 		}
@@ -109,7 +109,7 @@ public class MachineServiceImpl implements MachineService {
 		long days = result / (1000 * 60 * 60 * 24); 
 
 		Part part = record.getPart();
-		part.setStatus(false);	//将零件更改为未使用状态
+		part.setStatus("未使用");	//将零件更改为未使用状态
 		part.setUsedYear(part.getUsedYear() + (float)(days/365.0));
 		
 		partDAO.save(part);

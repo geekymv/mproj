@@ -52,7 +52,7 @@ public class PartAction extends ActionSupport implements RequestAware {
 	public String save() throws Exception {
 		
 		if(part.getId() == null) {	//添加零件
-			part.setStatus(false);
+			part.setStatus("未使用");
 			part.setUsedYear(0f);
 		}
 		
