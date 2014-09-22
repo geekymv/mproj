@@ -8,10 +8,11 @@ public interface UserService {
 	
 	/**
 	 * 检查用户是否合法
-	 * @param user
+	 * @param username
+	 * @param password
 	 * @return
 	 */
-	public User loginCheck(User user);
+	public User loginCheck(String username, String password);
 	
 	/**
 	 * 查询所有的用户

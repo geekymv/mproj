@@ -50,7 +50,7 @@ public class MachineAction extends ActionSupport implements RequestAware{
 		
 		request.put("pageUtil", pageUtil);
 		
-		return SUCCESS;
+		return "list";
 		
 	}
 	

@@ -72,7 +72,7 @@
 
     	
     	<action name="machine-*" class="machineAction" method="{1}">
-			<result name="success">/WEB-INF/machine/list.jsp</result>
+			<result name="list">/WEB-INF/machine/list.jsp</result>
 			<result name="add">/WEB-INF/machine/add.jsp</result>
 			<result name="save" type="redirectAction">machine-list</result>
 			<result name="edit">/WEB-INF/machine/edit.jsp</result>
@@ -101,17 +101,15 @@
 		<action name="parttype-*" class="partTypeAction" method="{1}">
 			<result name="add">/WEB-INF/part/add-type.jsp</result>
 		</action>
-	
 	</package>
-	
 	
 	
 	<!-- 用户 -->
 	<package name="user" namespace="/user" extends="struts-default">
 		<action name="user-*" class="userAction" method="{1}">
-			<result>/index.jsp</result>
+			<result name="success" type="redirect">/index.jsp</result>
+			<result name="login" type="redirect">/login.html</result>
 		</action>
 	</package>    
-    
 
 </struts>

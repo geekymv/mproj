@@ -11,30 +11,15 @@ import com.mproj.pojo.User;
 import com.mproj.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 
-@Scope("prototype")
 @Controller("userAction")
+@Scope("prototype")
 public class UserAction extends ActionSupport implements SessionAware{
-	private static final long serialVersionUID = -2348593734993697319L;
-	
+	private static final long serialVersionUID = 4444341950906097844L;
+
 	@Autowired
 	private UserService userService;
-	
-	private Map<String, Object> session;
-	private User user;
-	private String rememberMe;
-	
-	public void setUser(User user) {
-		this.user = user;
-	}
-	public User getUser() {
-		return user;
-	}
-	public void setRememberMe(String rememberMe) {
-		this.rememberMe = rememberMe;
-	}
-	public String getRememberMe() {
-		return rememberMe;
-	}
+	private String username;
+	private String password;
 	
 	/**
 	 * 登录验证
@@ -42,16 +27,12 @@ public class UserAction extends ActionSupport implements SessionAware{
 	 * @throws Exception
 	 */
 	public String login() throws Exception {
-		
-//		System.out.println("login method is invoked");
-		System.out.println("username = " + user.getUsername());
-		System.out.println("password = " + user.getPassword());
-//		System.out.println("rememberMe = " + rememberMe);
 
-		user = userService.loginCheck(user);
+		User user = userService.loginCheck(username, password);
 		
 		if(null != user){	//验证成功
 			session.put("user", user);
+			
 			return SUCCESS;
 		}
 		
@@ -59,11 +40,27 @@ public class UserAction extends ActionSupport implements SessionAware{
 		return LOGIN;
 	}
 
-	
+	private Map<String, Object> session;	
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
+
 }
 
 

@@ -78,8 +78,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	<s:else>
             		<s:iterator value="#request.pageUtil.datas">
 				  		<tr>
-				  			<td>${num }</td>
-				  			<td><s:property value="name"/></td>
+				  			<td>${num }</td> <!-- <s:property value="name"/> -->
+				  			<td>${name }</td>
 				  			<td><s:property value="useYear"/></td>
 				  			
 				  			<td>

@@ -17,9 +17,9 @@ public class UserServiceImpl implements UserService {
 	
 	
 	@Override
-	public User loginCheck(User user) {
+	public User loginCheck(String username, String password) {
 		
-		return userDAO.loginCheck(user);
+		return userDAO.loginCheck(username, password);
 	}
 
 	@Override

@@ -2,7 +2,6 @@ package com.mproj.dao.impl;
 
 import java.util.List;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,17 +21,16 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
-	public User loginCheck(User user) {
-		String hql = "from User where username= :username and password= :password";
-
-		Session session = this.getSession();
+	public User loginCheck(String username, String password) {
+		String hql = "from User user where user.username=? and user.password=?";
 		
-		Query query = session.createQuery(hql);
-		query.setString("username", user.getUsername());
-		query.setString("password", user.getPassword());
-
-		user = (User) query.uniqueResult();
-
+		User user = (User) getSession().createQuery(hql)
+			.setString(0, username)
+			.setString(1, password)
+			.uniqueResult();
+		
+		System.out.println(hql);
+		
 		return user;
 	}
 
