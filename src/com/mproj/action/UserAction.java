@@ -18,6 +18,7 @@ public class UserAction extends ActionSupport implements SessionAware{
 
 	@Autowired
 	private UserService userService;
+	
 	private String username;
 	private String password;
 	
@@ -36,8 +37,11 @@ public class UserAction extends ActionSupport implements SessionAware{
 			return SUCCESS;
 		}
 		
-		this.addActionError("用户名或密码错误！请重新输入....");
-		return LOGIN;
+//		this.addActionError("用户名或密码错误！请重新输入....");
+		
+//		this.addFieldError("username", "用户名或密码错误！");
+		
+		return INPUT;
 	}
 
 	private Map<String, Object> session;	

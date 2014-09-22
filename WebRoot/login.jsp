@@ -1,11 +1,17 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <!DOCTYPE HTML>
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-
 <title>用户登录</title>
-
 <style type="text/css">
 * {
 	margin: 0px;
@@ -130,22 +136,32 @@ body {
 	<div class="login_tit"></div>
 
 	<div class="login_main">
-		<form action="user/user-login.do" method="post">
+		<s:form action="user/user-login.do" method="post">
 			<p>
 				<span>用户名</span> <input name="username" type="text" id="logid"
 					class="input_01" placeholder="用户名" />
+				
+				<s:fielderror fieldName="username">
+				</s:fielderror>	
+					
 			</p>
 			<p>
 				<span>密&nbsp;&nbsp;&nbsp;码</span> <input name="password"
 					type="password" id="password" class="input_01" placeholder="密码" />
+				
+					<s:fielderror fieldName="password">
+					</s:fielderror>	
+				
 			</p>
 			<p>
 				<span></span> <input id="btnLogin" name="btnLogin" type="submit" value=""
 					class="input_02" />
 			</p>
-		</form>
+		</s:form>
 
 		<div class="login_user"></div>
+
+		<s:debug></s:debug>
 
 	</div>
 </body>
