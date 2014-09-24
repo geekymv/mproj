@@ -2,6 +2,7 @@ package com.mproj.action;
 
 import java.util.Map;
 
+import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -37,12 +38,24 @@ public class UserAction extends ActionSupport implements SessionAware{
 			return SUCCESS;
 		}
 		
-//		this.addActionError("用户名或密码错误！请重新输入....");
-		
-//		this.addFieldError("username", "用户名或密码错误！");
-		
 		return INPUT;
 	}
+
+	/**
+	 * 用户退出
+	 * @return
+	 * @throws Exception
+	 */
+	public String logout() throws Exception {
+		
+		if(session instanceof SessionMap) {
+			SessionMap sessionMap = (SessionMap)session;
+			sessionMap.invalidate();
+		}
+		
+		return "logout";
+	}
+	
 	
 	@Override
 	public void validate() {

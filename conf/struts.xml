@@ -122,6 +122,8 @@
 		<action name="user-*" class="userAction" method="{1}">
 			<result name="success" type="redirect">/index.jsp</result>
 			<result name="input">/login.jsp</result>
+			
+			<result name="logout" type="redirect">/login.jsp</result>
 		</action>
 	</package>    
 

@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	<div class="container">
-	
+	<!-- 
 	<div class="navbar">
 		<div class="navbar navbar-static-top">
 			<div class="container">
@@ -62,18 +62,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</a>
-			 
-			<!-- Be sure to leave the brand out there if you want it shown -->
 			<a class="brand" href="#">煤矿机械设备溯源系统</a>
-			 
-			<!-- Everything you want hidden at 940px or less, place within here -->
 			<div class="nav-collapse collapse">
-			<!-- .nav, .navbar-search, .navbar-form, etc -->
 			</div>
-			 
 			</div>
 		</div>
 	</div>
+    -->
     
     <div class="row">
       <div class="span9">

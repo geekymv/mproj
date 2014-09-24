@@ -161,8 +161,6 @@ body {
 
 		<div class="login_user"></div>
 
-		<s:debug></s:debug>
-
 	</div>
 </body>
 </html>
